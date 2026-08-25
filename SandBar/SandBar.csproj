@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6CBB852-1430-4A49-A7FA-64162ECD1783}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SandBar</RootNamespace>
+    <AssemblyName>SandBar</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TD\SandBar\AutoToggleType.cs" />
+    <Compile Include="TD\SandBar\ButtonItem.cs" />
+    <Compile Include="TD\SandBar\ButtonItemBase.cs" />
+    <Compile Include="TD\SandBar\ComboBoxItem.cs" />
+    <Compile Include="TD\SandBar\ContainerBar.cs" />
+    <Compile Include="TD\SandBar\ContainerBarClientPanel.cs" />
+    <Compile Include="TD\SandBar\ContainerBarTitleBarMenu.cs" />
+    <Compile Include="TD\SandBar\ContainerBarTitleBarMenuItem.cs" />
+    <Compile Include="TD\SandBar\ContextMenuBarItem.cs" />
+    <Compile Include="TD\SandBar\ControlContainerItem.cs" />
+    <Compile Include="TD\SandBar\Design\ContainerBarTitleBarMenuItemDesigner.cs" />
+    <Compile Include="TD\SandBar\Design\ContextMenuBarItemDesigner.cs" />
+    <Compile Include="TD\SandBar\Design\ControlContainerItemDesigner.cs" />
+    <Compile Include="TD\SandBar\Design\DesignerFunctions.cs" />
+    <Compile Include="TD\SandBar\Design\DesignTimeKeyboardInteraction.cs" />
+    <Compile Include="TD\SandBar\Design\MenuItemDesigner.cs" />
+    <Compile Include="TD\SandBar\Design\ToolBarItemBaseDesigner.cs" />
+    <Compile Include="TD\SandBar\Design\TopLevelMenuItemDesigner.cs" />
+    <Compile Include="TD\SandBar\DropDownMenuItem.cs" />
+    <Compile Include="TD\SandBar\FlatComboBox.cs" />
+    <Compile Include="TD\SandBar\IComboBoxRenderer.cs" />
+    <Compile Include="TD\SandBar\IContainerBarRenderer.cs" />
+    <Compile Include="TD\SandBar\ImageItemBase.cs" />
+    <Compile Include="TD\SandBar\IMenuRenderer.cs" />
+    <Compile Include="TD\SandBar\IPopupMenuHost.cs" />
+    <Compile Include="TD\SandBar\ItemImportance.cs" />
+    <Compile Include="TD\SandBar\ItemMergeAction.cs" />
+    <Compile Include="TD\SandBar\IToolBarItemBaseCollectionHost.cs" />
+    <Compile Include="TD\SandBar\IToolBarRenderer.cs" />
+    <Compile Include="TD\SandBar\LabelItem.cs" />
+    <Compile Include="TD\SandBar\MenuActivationType.cs" />
+    <Compile Include="TD\SandBar\MenuBar.cs" />
+    <Compile Include="TD\SandBar\MenuBarItem.cs" />
+    <Compile Include="TD\SandBar\MenuButtonItem.cs" />
+    <Compile Include="TD\SandBar\MenuItemBase.cs" />
+    <Compile Include="TD\SandBar\MenuPopupEventArgs.cs" />
+    <Compile Include="TD\SandBar\MenuProjection.cs" />
+    <Compile Include="TD\SandBar\Office2002Renderer.cs" />
+    <Compile Include="TD\SandBar\Office2003Renderer.cs" />
+    <Compile Include="TD\SandBar\Office2007ColorScheme.cs" />
+    <Compile Include="TD\SandBar\Office2007Renderer.cs" />
+    <Compile Include="TD\SandBar\OfficeRendererBase.cs" />
+    <Compile Include="TD\SandBar\PopupMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TD\SandBar\PopupMenu.Designer.cs">
+      <DependentUpon>PopupMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TD\SandBar\ProgressBarItem.cs" />
+    <Compile Include="TD\SandBar\SandBarLanguage.cs" />
+    <Compile Include="TD\SandBar\SandBarManager.cs" />
+    <Compile Include="TD\SandBar\SecondaryShortcutEventArgs.cs" />
+    <Compile Include="TD\SandBar\SecondaryShortcutEventHandler.cs" />
+    <Compile Include="TD\SandBar\ShortcutListener.cs" />
+    <Compile Include="TD\SandBar\StatusBar.cs" />
+    <Compile Include="TD\SandBar\StatusBarItem.cs" />
+    <Compile Include="TD\SandBar\ToolBar.cs" />
+    <Compile Include="TD\SandBar\ToolBarContainer.cs" />
+    <Compile Include="TD\SandBar\ToolBarGlyphType.cs" />
+    <Compile Include="TD\SandBar\ToolbarItemBase.cs" />
+    <Compile Include="TD\SandBar\ToolbarItemBaseCollection.cs" />
+    <Compile Include="TD\SandBar\ToolBarItemEventArgs.cs" />
+    <Compile Include="TD\SandBar\ToolBarLayout.cs" />
+    <Compile Include="TD\SandBar\ToolBarOverflow.cs" />
+    <Compile Include="TD\SandBar\ToolBarSituation.cs" />
+    <Compile Include="TD\SandBar\ToolBarTextAlign.cs" />
+    <Compile Include="TD\SandBar\TopLevelMenuItemBase.cs" />
+    <Compile Include="TD\SandBar\WhidbeyRenderer.cs" />
+    <Compile Include="TD\SandBar\x01480672935e1b10.cs" />
+    <Compile Include="TD\SandBar\x1fd873a54f087a8c.cs" />
+    <Compile Include="TD\SandBar\x209ff4cb51b91bfb.cs" />
+    <Compile Include="TD\SandBar\x3ddece31da445155.cs" />
+    <Compile Include="TD\SandBar\x443cc432acaadb1d.cs" />
+    <Compile Include="TD\SandBar\x4bb39eb6330384f7.cs" />
+    <Compile Include="TD\SandBar\x4c834b893c51f017.cs" />
+    <Compile Include="TD\SandBar\x502bf86f15e12152.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TD\SandBar\x502bf86f15e12152.Designer.cs">
+      <DependentUpon>x502bf86f15e12152.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TD\SandBar\x5b55bb129f506dac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TD\SandBar\x5b55bb129f506dac.Designer.cs">
+      <DependentUpon>x5b55bb129f506dac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TD\SandBar\x5c4975da3c2417f1.cs" />
+    <Compile Include="TD\SandBar\x60f3af502af1d663.cs" />
+    <Compile Include="TD\SandBar\x67a479f649e0eafe.cs" />
+    <Compile Include="TD\SandBar\x72ff29faed0885ea.cs" />
+    <Compile Include="TD\SandBar\x8d92ef71874aef72.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TD\SandBar\x8d92ef71874aef72.Designer.cs">
+      <DependentUpon>x8d92ef71874aef72.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TD\SandBar\xaa20bb2d964a49fc.cs" />
+    <Compile Include="TD\SandBar\xb3f7a6163630a970.cs" />
+    <Compile Include="TD\SandBar\xb5e3ab8b746d6d67.cs" />
+    <Compile Include="TD\SandBar\xd552f4634d304df2.cs" />
+    <Compile Include="TD\SandBar\xdf1e331801161ebc.cs" />
+    <Compile Include="TD\SandBar\xe82e926721c67317.cs" />
+    <Compile Include="TD\SandBar\xf00666a2552f1592.cs" />
+    <Compile Include="TD\SandBar\xf92605a24a69622a.cs" />
+    <Compile Include="TD\Util\xf8f9565783602018.cs" />
+    <Compile Include="Xenocode\Client\Attributes\AssemblyAttributes\ProcessedByXenocode.cs" />
+    <Compile Include="Xenocode\Client\Attributes\AssemblyAttributes\SuppressDisassembly.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TD.SandBarInternal.PopupMenu.resources" />
+    <EmbeddedResource Include="TD\SandBar\ContainerBar.bmp" />
+    <EmbeddedResource Include="TD\SandBar\FlatComboBox.bmp" />
+    <EmbeddedResource Include="TD\SandBar\MenuBar.bmp" />
+    <EmbeddedResource Include="TD\SandBar\Resources\close.gif" />
+    <EmbeddedResource Include="TD\SandBar\Resources\maximize.gif" />
+    <EmbeddedResource Include="TD\SandBar\Resources\minimize.gif" />
+    <EmbeddedResource Include="TD\SandBar\Resources\restore.gif" />
+    <EmbeddedResource Include="TD\SandBar\SandBarManager.bmp" />
+    <EmbeddedResource Include="TD\SandBar\StatusBar.bmp" />
+    <EmbeddedResource Include="TD\SandBar\ToolBar.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

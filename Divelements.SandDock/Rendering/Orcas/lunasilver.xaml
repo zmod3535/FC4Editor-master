@@ -1,0 +1,545 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Divelements.SandDock" xmlns:rendering="clr-namespace:Divelements.SandDock.Rendering" xmlns:orcas="clr-namespace:Divelements.SandDock.Rendering.Orcas">
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="688,0"
+		MappingMode="Absolute"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DockSiteBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}">
+		<GradientBrush.GradientStops>
+			<GradientStop
+				Color="#D7D7E5"
+				Offset="0" />
+			<GradientStop
+				Color="#F3F3F7"
+				Offset="1" />
+		</GradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#919B9C"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.BorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#F0F0F5"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.InactiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#D3D4DD" />
+		<GradientStop
+			Offset="1"
+			Color="#A6A5BF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="Black"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.InactiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="Black"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#919B9C"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#BEBED8" />
+		<GradientStop
+			Offset="0.7"
+			Color="#FFFFFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#716F64"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FCFCFE"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#91A7B4"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#919B9C"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripSelectedTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#D6D7DE"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.InactiveButtonHotBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#7B7D94"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.InactiveButtonHotBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFE3AD"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveButtonHotBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#4A496B"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveButtonHotBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFB673"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveButtonPressedBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#4A496B"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.ActiveButtonPressedBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}" />
+	<ControlTemplate xmlns:primitives="clr-namespace:Divelements.SandDock.Primitives"
+		TargetType="{x:Type primitives:WindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Border
+			Name="PART_Border"
+			BorderThickness="1,0,1,1"
+			CornerRadius="0,0,3,3"
+			Margin="0,1,-1,2"
+			BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}"
+			Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}">
+			<Grid>
+				<Rectangle
+					Name="PART_InnerBorder"
+					Margin="-1,0,-1,0"
+					Height="1"
+					VerticalAlignment="Top" />
+				<Border
+					Name="PART_SelectionDecorator"
+					Background="#FFC83C"
+					BorderBrush="#E68B2C"
+					BorderThickness="1,0,1,1"
+					CornerRadius="0,0,3,3"
+					Height="3"
+					VerticalAlignment="Bottom"
+					Margin="-1,0,-1,-1"
+					Visibility="Hidden" />
+				<DockPanel
+					Margin="2,1,3,1">
+					<Image
+						Name="PART_Image"
+						DockPanel.Dock="Left"
+						Width="16"
+						Height="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Window.Image, RelativeSource={RelativeSource TemplatedParent}}" />
+					<TextBlock
+						Name="PART_TextBlock"
+						Margin="2,0,0,0"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}" />
+				</DockPanel>
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="true"
+				Binding="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_Border"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_Border"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripSelectedTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="Fill"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_TextBlock"
+					Property="Foreground"
+					Value="{Binding Path=Window.TabForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+				<Setter
+					TargetName="PART_Border"
+					Property="Margin"
+					Value="0,0,-1,0" />
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+				<Setter
+					TargetName="PART_TextBlock"
+					Property="RenderTransform">
+					<Setter.Value>
+						<TranslateTransform
+							Y="-1" />
+					</Setter.Value>
+				</Setter>
+				<Setter
+					TargetName="PART_Image"
+					Property="RenderTransform">
+					<Setter.Value>
+						<TranslateTransform
+							Y="1" />
+					</Setter.Value>
+				</Setter>
+			</DataTrigger>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<SolidColorBrush
+		Color="#E1E2EC"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.BackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#9391B0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.BorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#F9F9FF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.HighlightBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripNormalTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FEFEFE" />
+		<GradientStop
+			Offset="1"
+			Color="#F4F4F8" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#9D9DA1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFFFFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripNormalTabHighlightBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7F7FD" />
+		<GradientStop
+			Offset="1"
+			Color="#E1E2EC" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#9391B0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripSelectedTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFFFFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripSelectedTabHighlightBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripHotTabBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFEBBC" />
+		<GradientStop
+			Offset="1"
+			Color="#FFC67A" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#9391B0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripHotTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFFFFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.TabStripHotTabHighlightBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FDFAFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.MenuBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#7C7C94"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.MenuBorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#6E6D8F"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.MenuMarginBorderBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:DocumentWindowGroupElements.MenuMarginBackgroundBrush}, TypeInTargetAssembly={x:Type orcas:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E8E9F2" />
+		<GradientStop
+			Offset="1"
+			Color="#C1C1D3" />
+	</LinearGradientBrush>
+	<DataTemplate
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:CollapsedWindowGroupElements.RightTabTemplate}, TypeInTargetAssembly={x:Type orcas:CollapsedWindowGroupElements}}">
+		<Grid
+			Margin="2,-1,0,0">
+			<Border
+				Name="TabBorder"
+				MinWidth="20"
+				Padding="1,3,1,3"
+				BorderThickness="1,1,0,1"
+				CornerRadius="3,0,0,3"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}"
+				TextElement.Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}">
+				<Border.Background>
+					<LinearGradientBrush
+						StartPoint="1,0"
+						EndPoint="0,0">
+						<GradientStop
+							Offset="0"
+							Color="#BEBED8" />
+						<GradientStop
+							Offset="0.7"
+							Color="#FFFFFF" />
+					</LinearGradientBrush>
+				</Border.Background>
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Top"
+						Width="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Image}" />
+					<TextBlock
+						Margin="0,3,1,0"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=TabText}">
+						<FrameworkElement.LayoutTransform>
+							<RotateTransform
+								Angle="90" />
+						</FrameworkElement.LayoutTransform>
+					</TextBlock>
+				</DockPanel>
+			</Border>
+			<Border
+				Name="PART_SelectionDecorator"
+				Background="#FFC83C"
+				BorderBrush="#E68B2C"
+				BorderThickness="1,1,0,1"
+				CornerRadius="3,0,0,3"
+				Width="3"
+				HorizontalAlignment="Left"
+				Visibility="Hidden" />
+		</Grid>
+		<DataTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:CollapsedWindowGroupElements.TopTabTemplate}, TypeInTargetAssembly={x:Type orcas:CollapsedWindowGroupElements}}">
+		<Grid
+			Margin="-1,0,0,2">
+			<Border
+				Name="TabBorder"
+				MinHeight="20"
+				Padding="3,1,3,2"
+				BorderThickness="1,0,1,1"
+				CornerRadius="0,0,3,3"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}"
+				TextElement.Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}">
+				<Border.Background>
+					<LinearGradientBrush
+						StartPoint="0,0"
+						EndPoint="0,1">
+						<GradientStop
+							Offset="0"
+							Color="#BEBED8" />
+						<GradientStop
+							Offset="0.7"
+							Color="#FFFFFF" />
+					</LinearGradientBrush>
+				</Border.Background>
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Left"
+						Width="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Image}" />
+					<TextBlock
+						Margin="3,0,0,2"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=TabText}" />
+				</DockPanel>
+			</Border>
+			<Border
+				Name="PART_SelectionDecorator"
+				Background="#FFC83C"
+				BorderBrush="#E68B2C"
+				BorderThickness="1,0,1,1"
+				CornerRadius="0,0,3,3"
+				Height="3"
+				VerticalAlignment="Bottom"
+				Visibility="Hidden" />
+		</Grid>
+		<DataTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:CollapsedWindowGroupElements.LeftTabTemplate}, TypeInTargetAssembly={x:Type orcas:CollapsedWindowGroupElements}}">
+		<Grid
+			Margin="0,-1,2,0">
+			<Border
+				Name="TabBorder"
+				MinWidth="20"
+				Padding="1,3,2,3"
+				BorderThickness="0,1,1,1"
+				CornerRadius="0,3,3,0"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}"
+				TextElement.Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}">
+				<Border.Background>
+					<LinearGradientBrush
+						StartPoint="0,0"
+						EndPoint="1,0">
+						<GradientStop
+							Offset="0"
+							Color="#BEBED8" />
+						<GradientStop
+							Offset="0.7"
+							Color="#FFFFFF" />
+					</LinearGradientBrush>
+				</Border.Background>
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Top"
+						Width="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Image}" />
+					<TextBlock
+						Margin="0,3,0,0"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=TabText}">
+						<FrameworkElement.LayoutTransform>
+							<RotateTransform
+								Angle="90" />
+						</FrameworkElement.LayoutTransform>
+					</TextBlock>
+				</DockPanel>
+			</Border>
+			<Border
+				Name="PART_SelectionDecorator"
+				Background="#FFC83C"
+				BorderBrush="#E68B2C"
+				BorderThickness="0,1,1,1"
+				CornerRadius="0,3,3,0"
+				Width="3"
+				HorizontalAlignment="Right"
+				Visibility="Hidden" />
+		</Grid>
+		<DataTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<DataTemplate
+		x:Key="{ComponentResourceKey ResourceId={x:Static orcas:CollapsedWindowGroupElements.BottomTabTemplate}, TypeInTargetAssembly={x:Type orcas:CollapsedWindowGroupElements}}">
+		<Grid
+			Margin="-1,2,0,0">
+			<Border
+				Name="TabBorder"
+				MinHeight="20"
+				Padding="3,1,3,2"
+				BorderThickness="1,1,1,0"
+				CornerRadius="3,3,0,0"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabBorderBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}"
+				TextElement.Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static orcas:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type orcas:DockedWindowGroupElements}}}">
+				<Border.Background>
+					<LinearGradientBrush
+						StartPoint="0,1"
+						EndPoint="0,0">
+						<GradientStop
+							Offset="0"
+							Color="#BEBED8" />
+						<GradientStop
+							Offset="0.7"
+							Color="#FFFFFF" />
+					</LinearGradientBrush>
+				</Border.Background>
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Left"
+						Width="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Image}" />
+					<TextBlock
+						Margin="3,0,0,0"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=TabText}" />
+				</DockPanel>
+			</Border>
+			<Border
+				Name="PART_SelectionDecorator"
+				Background="#FFC83C"
+				BorderBrush="#E68B2C"
+				BorderThickness="1,1,1,0"
+				CornerRadius="3,3,0,0"
+				Height="3"
+				VerticalAlignment="Top"
+				Visibility="Hidden" />
+		</Grid>
+		<DataTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_SelectionDecorator"
+					Property="Visibility"
+					Value="Visible" />
+			</Trigger>
+		</DataTemplate.Triggers>
+	</DataTemplate>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItem}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItemSelected}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush
+					StartPoint="0,0"
+					EndPoint="0,1">
+					<GradientStop
+						Offset="0"
+						Color="#FFF6CC" />
+					<GradientStop
+						Offset="1"
+						Color="#FFC273" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderBrush"
+			Value="#FFC06F" />
+		<Setter
+			Property="Border.CornerRadius"
+			Value="3" />
+	</Style>
+</ResourceDictionary>

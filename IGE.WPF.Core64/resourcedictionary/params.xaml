@@ -1,0 +1,132 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:params="clr-namespace:IGE.Parameters" xmlns:tools="clr-namespace:IGE.Tools" xmlns:views="clr-namespace:IGE.Views">
+	<DataTemplate
+		DataType="{x:Type params:ParamBool}"
+		x:Key="{DataTemplateKey {x:Type params:ParamBool}}">
+		<views:ParamBoolView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamFloat}"
+		x:Key="{DataTemplateKey {x:Type params:ParamFloat}}">
+		<views:ParamFloatView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamInt}"
+		x:Key="{DataTemplateKey {x:Type params:ParamInt}}">
+		<views:ParamIntView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamVector}"
+		x:Key="{DataTemplateKey {x:Type params:ParamVector}}">
+		<views:ParamVectorView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamButton}"
+		x:Key="{DataTemplateKey {x:Type params:ParamButton}}">
+		<views:ParamButtonView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamCheckButton}"
+		x:Key="{DataTemplateKey {x:Type params:ParamCheckButton}}">
+		<views:ParamCheckButtonView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamString}"
+		x:Key="{DataTemplateKey {x:Type params:ParamString}}">
+		<views:ParamStringView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamText}"
+		x:Key="{DataTemplateKey {x:Type params:ParamText}}">
+		<views:ParamTextView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamTextEdit}"
+		x:Key="{DataTemplateKey {x:Type params:ParamTextEdit}}">
+		<views:ParamTextEditView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamTime}"
+		x:Key="{DataTemplateKey {x:Type params:ParamTime}}">
+		<views:ParamTimeView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamEnumList}"
+		x:Key="{DataTemplateKey {x:Type params:ParamEnumList}}">
+		<views:ParamEnumListView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamEnumCombo}"
+		x:Key="{DataTemplateKey {x:Type params:ParamEnumCombo}}">
+		<views:ParamEnumComboView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamEnumButton}"
+		x:Key="{DataTemplateKey {x:Type params:ParamEnumButton}}">
+		<views:ParamEnumButtonView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamWaterMaterial}"
+		x:Key="{DataTemplateKey {x:Type params:ParamWaterMaterial}}">
+		<views:ParamWaterMaterialView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamSnapshot}"
+		x:Key="{DataTemplateKey {x:Type params:ParamSnapshot}}">
+		<views:ParamSnapshotView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamGroup}"
+		x:Key="{DataTemplateKey {x:Type params:ParamGroup}}">
+		<views:ParamGroupView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamOverrideFloat}"
+		x:Key="{DataTemplateKey {x:Type params:ParamOverrideFloat}}">
+		<views:ParamOverrideFloatView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamBudgetBar}"
+		x:Key="{DataTemplateKey {x:Type params:ParamBudgetBar}}">
+		<views:ParamBudgetBarView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamTool}"
+		x:Key="{DataTemplateKey {x:Type params:ParamTool}}">
+		<views:ParamToolView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamObjectSelection}"
+		x:Key="{DataTemplateKey {x:Type params:ParamObjectSelection}}">
+		<views:ParamObjectSelectionView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamInventoryObject}"
+		x:Key="{DataTemplateKey {x:Type params:ParamInventoryObject}}">
+		<views:ParamInventoryObjectView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:ParamSlotListViewModel}"
+		x:Key="{DataTemplateKey {x:Type params:ParamSlotListViewModel}}">
+		<views:ParamSlotListView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:InventoryFolderViewModel}"
+		x:Key="{DataTemplateKey {x:Type params:InventoryFolderViewModel}}">
+		<views:InventoryFolderView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:InventoryEntryViewModel}"
+		x:Key="{DataTemplateKey {x:Type params:InventoryEntryViewModel}}">
+		<views:InventoryEntryView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type params:EditorObjectViewModel}"
+		x:Key="{DataTemplateKey {x:Type params:EditorObjectViewModel}}">
+		<views:EditorObjectView />
+	</DataTemplate>
+	<DataTemplate
+		DataType="{x:Type tools:ToolBase}"
+		x:Key="{DataTemplateKey {x:Type tools:ToolBase}}">
+		<views:ToolModeView />
+	</DataTemplate>
+</ResourceDictionary>

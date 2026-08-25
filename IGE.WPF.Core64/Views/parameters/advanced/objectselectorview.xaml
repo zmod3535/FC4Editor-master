@@ -1,0 +1,103 @@
+<UserControl
+	x:Class="IGE.Views.ObjectSelectorView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hlp="clr-namespace:IGE.Helpers" xmlns:b="clr-namespace:IGE.ViewModels.Behaviours" xmlns:views="clr-namespace:IGE.Views"
+	IsEnabled="{Binding Enabled}"
+	Visibility="{Binding Visible}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="../../../ResourceDictionary/Images.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<BooleanToVisibilityConverter
+				x:Key="BoolToVis" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<Label
+			DockPanel.Dock="Top"
+			Content="{Binding DisplayName}" />
+		<DockPanel
+			Dock="Top">
+			<Button
+				DockPanel.Dock="Right"
+				Command="{Binding CommandParent}"
+				Visibility="{Binding ShowFolders, Converter={StaticResource BoolToVis}}">
+				<Image
+					Source="{StaticResource ImageBrowseParent}"
+					Stretch="None" />
+			</Button>
+			<ComboBox
+				ItemsSource="{Binding Folders}"
+				SelectedItem="{Binding SelectedFolder}"
+				Visibility="{Binding ShowFolders, Converter={StaticResource BoolToVis}}">
+				<ItemsControl.ItemTemplateSelector>
+					<hlp:ComboBoxItemTemplateSelector>
+						<hlp:ComboBoxItemTemplateSelector.SelectedTemplate>
+							<DataTemplate>
+								<StackPanel
+									Orientation="Horizontal">
+									<Image
+										DockPanel.Dock="Left"
+										Stretch="None"
+										Source="{Binding Image}" />
+									<TextBlock
+										Text="{Binding Text}" />
+								</StackPanel>
+							</DataTemplate>
+						</hlp:ComboBoxItemTemplateSelector.SelectedTemplate>
+						<hlp:ComboBoxItemTemplateSelector.DropDownTemplate>
+							<DataTemplate>
+								<StackPanel
+									Orientation="Horizontal">
+									<UserControl
+										DockPanel.Dock="Left"
+										Width="{Binding DepthSpace}" />
+									<Image
+										DockPanel.Dock="Left"
+										Stretch="None"
+										Source="{Binding Image}" />
+									<TextBlock
+										Text="{Binding Text}" />
+								</StackPanel>
+							</DataTemplate>
+						</hlp:ComboBoxItemTemplateSelector.DropDownTemplate>
+					</hlp:ComboBoxItemTemplateSelector>
+				</ItemsControl.ItemTemplateSelector>
+			</ComboBox>
+		</DockPanel>
+		<ListView
+			Name="ListView"
+			SelectionMode="Single"
+			ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+			ItemsSource="{Binding Items}"
+			SelectedItem="{Binding SelectedItem}">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<!--Неизвестный ID соединения: 2-->
+					<Style
+						TargetType="{x:Type ListViewItem}"
+						x:Key="{x:Type ListViewItem}">
+						<Style.Resources>
+							<ResourceDictionary>
+								<SolidColorBrush
+									Color="Teal"
+									Opacity=".4"
+									x:Key="{x:Static SystemColors.ControlBrushKey}" />
+							</ResourceDictionary>
+						</Style.Resources>
+						<Setter
+							Property="b:ListViewEnsureVisible.IsBroughtIntoViewWhenSelected"
+							Value="True" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel
+						IsItemsHost="True"
+						MinHeight="50" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ListView>
+	</DockPanel>
+</UserControl>

@@ -1,0 +1,266 @@
+<Window
+	x:Class="IGE.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:nomad="clr-namespace:IGE.Nomad" xmlns:views="clr-namespace:IGE.Views" xmlns:viewmodels="clr-namespace:IGE.ViewModels" xmlns:tools="clr-namespace:IGE.Tools" xmlns:hlp="clr-namespace:IGE.Helpers" xmlns:ui="clr-namespace:IGE.UI" xmlns:sd="clr-namespace:Divelements.SandDock;assembly=Divelements.SandDock" xmlns:controls="clr-namespace:IGE.Controls"
+	Width="989"
+	Height="701"
+	ResizeMode="CanResizeWithGrip"
+	UseLayoutRounding="True"
+	WindowState="Maximized"
+	Topmost="True" xmlns:ige="clr-namespace:IGE"
+	Title="{Binding TitleBar}"
+	IsEnabled="{Binding IsUiEnabled}"
+	DataContext="{StaticResource ResourceKey=MainWinDataContext}"
+	Loaded="MainWindow_Loaded"
+	Closing="MainWindow_OnClosing"
+	KeyDown="MainWindow_KeyEvent"
+	KeyUp="MainWindow_KeyEvent">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="../ResourceDictionary/Images.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<viewmodels:MainWindowViewModel
+				x:Key="MainWinDataContext" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<UserControl
+			DockPanel.Dock="Top"
+			Content="{Binding MainMenu}"
+			Visibility="{Binding UiVisibility}" />
+		<UserControl
+			DockPanel.Dock="Top"
+			Content="{Binding MainToolBarTray}"
+			Visibility="{Binding UiVisibility}" />
+		<StatusBar
+			DockPanel.Dock="Bottom"
+			Height="29">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<nomad:Vec3ToStrF2
+						x:Key="Vec3ToStrF2" />
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="30" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="70" />
+							<ColumnDefinition
+								Width="150" />
+							<ColumnDefinition
+								Width="150" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+					</Grid>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<StatusBarItem
+				Grid.Column="0">
+				<Image
+					Source="{Binding StatusIcon}" />
+			</StatusBarItem>
+			<StatusBarItem
+				Grid.Column="1">
+				<TextBlock
+					Text="{Binding StatusText}"
+					Background="{Binding StatusBackground}"
+					Foreground="{Binding StatusColor}" />
+			</StatusBarItem>
+			<StatusBarItem
+				Grid.Column="2">
+				<ComboBox
+					Name="CameraSpeedComboBox"
+					BorderThickness="0"
+					BorderBrush="#00FFFFFF"
+					Background="#00FFFFFF"
+					ItemsSource="{Binding CameraSpeed}"
+					SelectedItem="{Binding CurrentSpeed, Mode=OneWay}">
+					<ItemsControl.ItemTemplateSelector>
+						<hlp:ComboBoxItemTemplateSelector>
+							<hlp:ComboBoxItemTemplateSelector.SelectedTemplate>
+								<DataTemplate>
+									<StackPanel
+										Orientation="Horizontal">
+										<Image
+											DockPanel.Dock="Left"
+											Source="{StaticResource ImageSpeed}" />
+										<TextBlock
+											Text="{Binding Value}" />
+									</StackPanel>
+								</DataTemplate>
+							</hlp:ComboBoxItemTemplateSelector.SelectedTemplate>
+							<hlp:ComboBoxItemTemplateSelector.DropDownTemplate>
+								<DataTemplate>
+									<TextBlock
+										Text="{Binding Display}" />
+								</DataTemplate>
+							</hlp:ComboBoxItemTemplateSelector.DropDownTemplate>
+						</hlp:ComboBoxItemTemplateSelector>
+					</ItemsControl.ItemTemplateSelector>
+					<ItemsControl.ItemContainerStyle>
+						<!--Неизвестный ID соединения: 3-->
+						<Style />
+					</ItemsControl.ItemContainerStyle>
+				</ComboBox>
+			</StatusBarItem>
+			<StatusBarItem
+				Grid.Column="3">
+				<StackPanel
+					Orientation="Horizontal">
+					<Image
+						Source="{StaticResource ImageCamera}" />
+					<TextBlock
+						Text="{Binding CameraPosition, Converter={StaticResource Vec3ToStrF2}}" />
+				</StackPanel>
+			</StatusBarItem>
+			<StatusBarItem
+				Grid.Column="4">
+				<StackPanel
+					Orientation="Horizontal">
+					<Image
+						Source="{StaticResource ImageCursor}" />
+					<TextBlock
+						Text="{Binding CursorPosition, Converter={StaticResource Vec3ToStrF2}}" />
+				</StackPanel>
+			</StatusBarItem>
+			<StatusBarItem
+				Grid.Column="5">
+				<StackPanel
+					Orientation="Horizontal">
+					<Image
+						Source="{StaticResource ImageFrameTime}" />
+					<TextBlock
+						Text="{Binding FPS, StringFormat={}{0:F1} FPS}" />
+				</StackPanel>
+			</StatusBarItem>
+		</StatusBar>
+		<sd:DockSite
+			Name="MainDockSite">
+			<sd:DocumentWindow
+				AllowClose="False"
+				ShowOptionsButton="False">
+				<WindowsFormsHost>
+					<ui:ViewportControl
+						x:Name="Viewport" />
+				</WindowsFormsHost>
+			</sd:DocumentWindow>
+			<sd:DockSite.SplitContainers>
+				<sd:SplitContainer
+					DockSite.Dock="Right"
+					DockSite.ContentSize="400">
+					<sd:WindowGroup>
+						<sd:DockableWindow
+							Name="DockToolParameters"
+							AllowCollapse="False"
+							DataContext="{StaticResource MainWinDataContext}"
+							Guid="3b44d7d6-f472-4373-9bac-a5d4cc471425">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<DataTemplate
+										DataType="{x:Type tools:Tool}"
+										x:Key="{DataTemplateKey {x:Type tools:Tool}}">
+										<views:ToolView />
+									</DataTemplate>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<UserControl
+								Content="{Binding ActiveTool}" />
+						</sd:DockableWindow>
+					</sd:WindowGroup>
+					<sd:WindowGroup>
+						<sd:DockableWindow
+							Name="DockEditorSettings"
+							AllowCollapse="False"
+							DataContext="{StaticResource MainWinDataContext}"
+							Guid="ad8a4d52-f3ba-4463-9ce3-4cbed143ec05">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<DataTemplate
+										DataType="{x:Type viewmodels:EditorSettingsViewModel}"
+										x:Key="{DataTemplateKey {x:Type viewmodels:EditorSettingsViewModel}}">
+										<views:EditorSettingsView />
+									</DataTemplate>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<UserControl
+								Content="{Binding EditorSettings}" />
+						</sd:DockableWindow>
+						<sd:DockableWindow
+							Name="DockContextHelp"
+							AllowCollapse="False"
+							DataContext="{StaticResource MainWinDataContext}"
+							Guid="4a3bcfd3-d4b0-44a0-bac0-bfd030fbc69b">
+							<ScrollViewer
+								Name="ContextScroll"
+								HorizontalScrollBarVisibility="Hidden"
+								VerticalScrollBarVisibility="Auto"
+								Background="{DynamicResource SystemColors.InfoBrushKey}"
+								Foreground="{DynamicResource SystemColors.InfoTextBrushKey}">
+								<controls:BindableRichTextBox
+									Background="#00FFFFFF"
+									IsReadOnly="True"
+									Document="{Binding RichContextHelpDocument}"
+									MaxWidth="{Binding ViewportWidth, ElementName=ContextScroll}" />
+							</ScrollViewer>
+						</sd:DockableWindow>
+						<sd:DockableWindow
+							Name="DockBudgets"
+							AllowCollapse="False"
+							DataContext="{StaticResource MainWinDataContext}"
+							Guid="e9547a6c-d040-46d1-ad4e-0f9f2686ed9f">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<DataTemplate
+										DataType="{x:Type viewmodels:BudgetsViewModel}"
+										x:Key="{DataTemplateKey {x:Type viewmodels:BudgetsViewModel}}">
+										<views:BudgetsView />
+									</DataTemplate>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<UserControl
+								Content="{Binding Budgets}" />
+						</sd:DockableWindow>
+						<sd:DockableWindow
+							Name="DockObjectProperties"
+							AllowCollapse="False"
+							DataContext="{StaticResource MainWinDataContext}"
+							Guid="3759b856-9e2a-4ab7-abf3-09bb675b2aad">
+							<FrameworkElement.Resources>
+								<ResourceDictionary>
+									<DataTemplate
+										DataType="{x:Type viewmodels:AmbientPropertiesViewModel}"
+										x:Key="{DataTemplateKey {x:Type viewmodels:AmbientPropertiesViewModel}}">
+										<views:AmbientPropertiesView />
+									</DataTemplate>
+									<DataTemplate
+										DataType="{x:Type viewmodels:STPPropertiesViewModel}"
+										x:Key="{DataTemplateKey {x:Type viewmodels:STPPropertiesViewModel}}">
+										<views:STPPropertiesView />
+									</DataTemplate>
+									<DataTemplate
+										DataType="{x:Type viewmodels:NoPropertiesViewModel}"
+										x:Key="{DataTemplateKey {x:Type viewmodels:NoPropertiesViewModel}}">
+										<views:NoPropertiesView />
+									</DataTemplate>
+								</ResourceDictionary>
+							</FrameworkElement.Resources>
+							<ScrollViewer
+								HorizontalScrollBarVisibility="Hidden"
+								VerticalScrollBarVisibility="Auto">
+								<UserControl
+									Content="{Binding ObjectProperties}" />
+							</ScrollViewer>
+						</sd:DockableWindow>
+					</sd:WindowGroup>
+				</sd:SplitContainer>
+			</sd:DockSite.SplitContainers>
+		</sd:DockSite>
+	</DockPanel>
+</Window>

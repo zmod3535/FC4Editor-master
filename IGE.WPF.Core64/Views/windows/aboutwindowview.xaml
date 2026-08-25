@@ -1,0 +1,88 @@
+<Window
+	x:Class="IGE.Views.AboutWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewmodels="clr-namespace:IGE.ViewModels"
+	WindowStyle="None"
+	ShowInTaskbar="False"
+	AllowsTransparency="True"
+	Background="#00FFFFFF"
+	WindowStartupLocation="CenterScreen"
+	Width="960"
+	Height="512"
+	Opacity="0"
+	Topmost="False" xmlns:views="clr-namespace:IGE.Views"
+	MouseDown="AboutWindow_OnMouseDown"
+	Closing="OnClosing">
+	<FrameworkElement.DataContext>
+		<viewmodels:AboutWindowViewModel />
+	</FrameworkElement.DataContext>
+	<FrameworkElement.Triggers>
+		<EventTrigger
+			RoutedEvent="Window.Loaded">
+			<BeginStoryboard>
+				<Storyboard>
+					<DoubleAnimation
+						Duration="00:00:01"
+						Storyboard.TargetProperty="Opacity"
+						To="1" />
+				</Storyboard>
+			</BeginStoryboard>
+		</EventTrigger>
+	</FrameworkElement.Triggers>
+	<Canvas
+		Name="Canvas">
+		<Image
+			Source="..\..\img\splashscreen\splash.png"
+			Stretch="None" />
+		<Grid
+			Width="{Binding ElementName=Canvas, Path=ActualWidth}"
+			Height="{Binding ElementName=Canvas, Path=ActualHeight}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="343" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Grid.Row="2"
+				FontFamily="Verdana"
+				FontSize="12"
+				FontWeight="Bold"
+				Foreground="#E1EAEF"
+				HorizontalAlignment="Center"
+				Text="{Binding EditorTitle}" />
+			<TextBlock
+				Grid.Row="3"
+				FontFamily="Tahoma"
+				FontSize="10"
+				FontWeight="Bold"
+				Foreground="#E1EAEF"
+				HorizontalAlignment="Center"
+				MaxWidth="425"
+				TextWrapping="Wrap"
+				Text="{Binding Copyright}" />
+			<TextBlock
+				Name="TextLoading"
+				Grid.Row="4"
+				FontFamily="Tahoma"
+				FontSize="9"
+				Foreground="#B53B3B"
+				HorizontalAlignment="Center"
+				Text="{Binding LoadingText}" />
+			<ProgressBar
+				Name="Progress"
+				Grid.Row="5"
+				Minimum="0"
+				Maximum="100"
+				Value="0"
+				Height="3"
+				Background="#00FFFFFF" />
+		</Grid>
+	</Canvas>
+</Window>

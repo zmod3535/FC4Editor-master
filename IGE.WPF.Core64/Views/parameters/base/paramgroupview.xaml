@@ -1,0 +1,25 @@
+<UserControl
+	x:Class="IGE.Views.ParamGroupView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hlp="clr-namespace:IGE.Helpers" xmlns:views="clr-namespace:IGE.Views"
+	IsEnabled="{Binding Enabled}"
+	Visibility="{Binding Visible}">
+	<GroupBox
+		Header="{Binding GroupName}">
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<ResourceDictionary.MergedDictionaries>
+					<ResourceDictionary
+						Source="../../../ResourceDictionary/Params.xaml" />
+				</ResourceDictionary.MergedDictionaries>
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<ScrollViewer
+			Name="ScrollViewer"
+			HorizontalScrollBarVisibility="Hidden"
+			VerticalScrollBarVisibility="Auto"
+			PreviewMouseWheel="ParamGroupView_OnPreviewMouseWheel">
+			<ItemsControl
+				ItemsSource="{Binding Parameters}"
+				MaxWidth="{Binding ViewportWidth, ElementName=ScrollViewer}" />
+		</ScrollViewer>
+	</GroupBox>
+</UserControl>

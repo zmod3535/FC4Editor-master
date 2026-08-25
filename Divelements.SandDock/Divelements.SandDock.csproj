@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5262823-A220-440F-93EF-32917B95C2B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Divelements.SandDock</RootNamespace>
+    <AssemblyName>Divelements.SandDock</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationFramework.Luna" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Divelements\SandDock\Automation\DockableWindowAutomationPeer.cs" />
+    <Compile Include="Divelements\SandDock\Automation\DockSiteAutomationPeer.cs" />
+    <Compile Include="Divelements\SandDock\DockableWindow.cs" />
+    <Compile Include="Divelements\SandDock\DockableWindowCollection.cs" />
+    <Compile Include="Divelements\SandDock\DockingHintDisplayStrategy.cs" />
+    <Compile Include="Divelements\SandDock\DockingHintType.cs" />
+    <Compile Include="Divelements\SandDock\DockingRules.cs" />
+    <Compile Include="Divelements\SandDock\DockingStartedEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\DockSite.cs" />
+    <Compile Include="Divelements\SandDock\DockSiteEdge.cs" />
+    <Compile Include="Divelements\SandDock\DockSituation.cs" />
+    <Compile Include="Divelements\SandDock\DocumentContainer.cs" />
+    <Compile Include="Divelements\SandDock\DocumentContainerWindowOpenPosition.cs" />
+    <Compile Include="Divelements\SandDock\DocumentWindow.cs" />
+    <Compile Include="Divelements\SandDock\FloatingWindowDisplayStrategy.cs" />
+    <Compile Include="Divelements\SandDock\FrameworkElementCollection.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\CreateNewContainerOperation.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\DockingManager.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\DockingOperationBase.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\DockingOperationCompletedEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\DockingOperationMoveEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\FloatOperation.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\JoinWindowGroupOperation.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\PositionPreview.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\PositionPreviewAdorner.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\SplitWindowGroupOperation.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\TabOperation.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\x053c20cd4405f3ab.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\x1300cf777c4b7322.cs" />
+    <Compile Include="Divelements\SandDock\InteractiveDocking\x702c550d0cd841b4.cs" />
+    <Compile Include="Divelements\SandDock\LoadWindowEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\MdiContainer.cs" />
+    <Compile Include="Divelements\SandDock\PopupAnimationType.cs" />
+    <Compile Include="Divelements\SandDock\PreviewWindowLoadMode.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\DockingHint.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\DocumentTabChrome.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\DropShadow.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\FloatingWindowAdapter.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\MdiPanel.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\MdiWindowContainer.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\NativeFloatingWindowHost.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\PopupContainer.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\PopupContainerSplitter.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\ResizeControlSplitter.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\ShrinkingTabPanel.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\SplitContainerSplitter.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\SystemCaptionButton.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\UnpinnedTabStrip.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\UnpinnedTray.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\WindowHierarchyPresenter.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\WindowList.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\WindowTab.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\WpfFloatingWindowHost.cs" />
+    <Compile Include="Divelements\SandDock\Primitives\x84f4377c0f1291fe.cs" />
+    <Compile Include="Divelements\SandDock\Properties\Resources.cs" />
+    <Compile Include="Divelements\SandDock\Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Divelements\SandDock\RenderingElement.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\DynamicTemplates.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\GeneralElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\DockedWindowGroupElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\DocumentWindowGroupElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\MenuElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\Office2007ColorScheme.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\PopupContainerElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Office2007\UnpinnedTrayElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Orcas\CollapsedWindowGroupElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Orcas\DockedWindowGroupElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Orcas\DocumentWindowGroupElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\StandardTheme.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\ThemeDictionaryManager.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\ThemeDictionaryType.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\Themes.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\WindowFrameElements.cs" />
+    <Compile Include="Divelements\SandDock\Rendering\x17a4a3c1cfdeaf47.cs" />
+    <Compile Include="Divelements\SandDock\Resources\Messages.cs" />
+    <Compile Include="Divelements\SandDock\SandDockLanguageStrings.cs" />
+    <Compile Include="Divelements\SandDock\ShowWindowControlsEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\SplitContainer.cs" />
+    <Compile Include="Divelements\SandDock\SplitContainerCollection.cs" />
+    <Compile Include="Divelements\SandDock\SplitPreviewAdorner.cs" />
+    <Compile Include="Divelements\SandDock\Switching\PreviewWindowSwitcher.cs" />
+    <Compile Include="Divelements\SandDock\Switching\QuickTabWindowSelector.cs" />
+    <Compile Include="Divelements\SandDock\Switching\Tab3DWindowSelector.cs" />
+    <Compile Include="Divelements\SandDock\Switching\WhidbeyWindowSelector.cs" />
+    <Compile Include="Divelements\SandDock\Switching\WindowPreview.cs" />
+    <Compile Include="Divelements\SandDock\Switching\WindowSwitcher.cs" />
+    <Compile Include="Divelements\SandDock\Switching\x5b48716de9a52566.cs" />
+    <Compile Include="Divelements\SandDock\Switching\x5ca7963207d84796.cs" />
+    <Compile Include="Divelements\SandDock\Switching\xc49fa306611edef5.cs" />
+    <Compile Include="Divelements\SandDock\WindowCloseMethod.cs" />
+    <Compile Include="Divelements\SandDock\WindowContextMenu.cs" />
+    <Compile Include="Divelements\SandDock\WindowDragSourceType.cs" />
+    <Compile Include="Divelements\SandDock\WindowEventArgs.cs" />
+    <Compile Include="Divelements\SandDock\WindowGroup.cs" />
+    <Compile Include="Divelements\SandDock\WindowMetaData.cs" />
+    <Compile Include="Divelements\SandDock\WindowOpenMethod.cs" />
+    <Compile Include="Divelements\SandDock\WindowPreviewType.cs" />
+    <Compile Include="Divelements\SandDock\WindowSwitcherType.cs" />
+    <Compile Include="Divelements\SandDock\x129cb2a2bdfd0ab2.cs" />
+    <Compile Include="Divelements\SandDock\x245a5abec1c73d3a.cs" />
+    <Compile Include="Divelements\SandDock\x4025ca48d3c65c4e.cs" />
+    <Compile Include="Divelements\SandDock\x443cc432acaadb1d.cs" />
+    <Compile Include="Divelements\SandDock\x5678bb8d80c0f12e.cs" />
+    <Compile Include="Divelements\SandDock\xd0aa9d0e7d3446c0.cs" />
+    <Compile Include="Divelements\SandDock\xd679d9fc970c8f10.cs" />
+    <Compile Include="Divelements\SandDock\xdeadcc9941b6354e.cs" />
+    <Compile Include="Divelements\SandDock\xe189190bd5894d4f.cs" />
+    <Compile Include="Divelements\SandDock\xee4008b4c243e4a9.cs" />
+    <Compile Include="Divelements\SandRibbon\Primitives\ControlHostAdorner.cs" />
+    <Compile Include="Divelements\Util\Registration\EvaluationWatermarkAdorner.cs" />
+    <Compile Include="Divelements\Util\Registration\x1d91faf71382de33.cs" />
+    <Compile Include="Divelements\Util\Registration\x294bd621a33dc533.cs" />
+    <Compile Include="Divelements\Util\Registration\xbd7c5470fc89975b.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xenocode\Client\Attributes\AssemblyAttributes\ProcessedByXenocode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Divelements\SandDock\DockSite\icon.png" />
+    <EmbeddedResource Include="Divelements\SandDock\DocumentContainer\icon.png" />
+    <EmbeddedResource Include="Divelements\SandDock\Properties\Resources.resources" />
+    <EmbeddedResource Include="Divelements\SandDock\Resources\Messages.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Divelements\SandDock\Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Rendering\Office2007\black.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Office2007\blue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Office2007\silver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Office2007\theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\aero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\classic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\lunablue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\lunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\lunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rendering\Orcas\theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rendering\whidbey\aero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rendering\whidbey\lunablue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rendering\whidbey\lunaolive.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rendering\whidbey\lunasilver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="rendering\whidbey\theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\aero.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.homestead.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.metallic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\luna.normalcolor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\clipart.xaml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

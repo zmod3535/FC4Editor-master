@@ -1,0 +1,51 @@
+<UserControl
+	x:Class="IGE.Views.ParamBudgetBarView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:views="clr-namespace:IGE.Views"
+	IsEnabled="{Binding Enabled}"
+	Visibility="{Binding Visible}">
+	<Grid
+		Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition
+				Width="Auto" />
+			<ColumnDefinition
+				Width="*" />
+			<ColumnDefinition
+				Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Label
+			Grid.Column="0"
+			HorizontalAlignment="Left"
+			Content="{Binding DisplayName}" />
+		<Grid
+			Name="BarRect"
+			Column="1"
+			HorizontalAlignment="Stretch"
+			SizeChanged="BarRectSizeChangedHandler">
+			<Rectangle
+				Name="BudgetRect"
+				Fill="#00FFFFFF"
+				Stroke="#FF000000"
+				HorizontalAlignment="Stretch"
+				Height="10" />
+			<Rectangle
+				Name="CurrentRect"
+				Fill="#FF9400D3"
+				Stroke="#00FFFFFF"
+				HorizontalAlignment="Left"
+				Height="8"
+				Width="{Binding Width}" />
+			<Rectangle
+				Name="AmbientRect"
+				Fill="#FF0000FF"
+				Stroke="#00FFFFFF"
+				HorizontalAlignment="Left"
+				Height="8"
+				Width="{Binding AmbientWidth}" />
+		</Grid>
+		<Label
+			Name="PercentageText"
+			Grid.Column="2"
+			HorizontalAlignment="Left"
+			Content="{Binding BudgetString}" />
+	</Grid>
+</UserControl>

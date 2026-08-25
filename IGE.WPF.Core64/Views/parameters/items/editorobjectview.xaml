@@ -1,0 +1,14 @@
+<UserControl
+	x:Class="IGE.Views.EditorObjectView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:views="clr-namespace:IGE.Views">
+	<StackPanel
+		Orientation="Horizontal">
+		<Image
+			Grid.Column="0"
+			Stretch="None"
+			Source="{Binding Image}" />
+		<Label
+			Grid.Column="1"
+			Padding="5,0"
+			Content="{Binding DisplayName}" />
+	</StackPanel>
+</UserControl>

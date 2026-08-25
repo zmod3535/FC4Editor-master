@@ -1,0 +1,38 @@
+<ToolBarTray
+	x:Class="IGE.Views.MainToolBarTray" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:tools="clr-namespace:IGE.Tools" xmlns:views="clr-namespace:IGE.Views"
+	IsLocked="True">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				DataType="{x:Type tools:Tool}"
+				x:Key="{DataTemplateKey {x:Type tools:Tool}}">
+				<views:ToolbarButton />
+			</DataTemplate>
+			<DataTemplate
+				DataType="{x:Type tools:ToolAction}"
+				x:Key="{DataTemplateKey {x:Type tools:ToolAction}}">
+				<views:ToolbarActionButton />
+			</DataTemplate>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<ToolBar
+		Band="1"
+		BandIndex="1"
+		OverflowMode="Never"
+		ItemsSource="{Binding ToolsMain}" />
+	<ToolBar
+		Band="1"
+		BandIndex="2"
+		OverflowMode="Never"
+		ItemsSource="{Binding ToolsObjects}" />
+	<ToolBar
+		Band="1"
+		BandIndex="3"
+		OverflowMode="Never"
+		ItemsSource="{Binding ToolsTerrain}" />
+	<ToolBar
+		Band="1"
+		BandIndex="4"
+		OverflowMode="Never"
+		ItemsSource="{Binding ToolsMap}" />
+</ToolBarTray>

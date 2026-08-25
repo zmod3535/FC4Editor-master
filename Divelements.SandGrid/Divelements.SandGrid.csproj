@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D681C6E5-DF73-4005-AD7A-11CA44745F71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Divelements.SandGrid</RootNamespace>
+    <AssemblyName>Divelements.SandGrid</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Divelements\SandGrid\BooleanDisplayType.cs" />
+    <Compile Include="Divelements\SandGrid\CellDragBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\CellForeColorSource.cs" />
+    <Compile Include="Divelements\SandGrid\CheckTrigger.cs" />
+    <Compile Include="Divelements\SandGrid\ClipboardOperations.cs" />
+    <Compile Include="Divelements\SandGrid\ColumnAutoSizeMode.cs" />
+    <Compile Include="Divelements\SandGrid\ColumnAutoSortType.cs" />
+    <Compile Include="Divelements\SandGrid\ColumnClickBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\DataBindingCompleteEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\DataBindingCompleteEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\DataErrorOperation.cs" />
+    <Compile Include="Divelements\SandGrid\DataUtilities.cs" />
+    <Compile Include="Divelements\SandGrid\DelimitedDataExportSettings.cs" />
+    <Compile Include="Divelements\SandGrid\Design\x0455fc60011a73cd.cs" />
+    <Compile Include="Divelements\SandGrid\Design\x2ff587247dd094dd.cs" />
+    <Compile Include="Divelements\SandGrid\Design\xa99da2aabc9421ba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Divelements\SandGrid\Design\xa99da2aabc9421ba.Designer.cs">
+      <DependentUpon>xa99da2aabc9421ba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Divelements\SandGrid\Design\xe72bc7a607f2a484.cs" />
+    <Compile Include="Divelements\SandGrid\EditingMode.cs" />
+    <Compile Include="Divelements\SandGrid\ElementResizeBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\ElementsMovedEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\ElementsMovedEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\ExpandCollapseTrigger.cs" />
+    <Compile Include="Divelements\SandGrid\FocusableGridElement.cs" />
+    <Compile Include="Divelements\SandGrid\FocusAdvanceDirection.cs" />
+    <Compile Include="Divelements\SandGrid\FocusAdvanceMethod.cs" />
+    <Compile Include="Divelements\SandGrid\GridAfterEditEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridAfterEditEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridBeforeEditEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridBeforeEditEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridCell.cs" />
+    <Compile Include="Divelements\SandGrid\GridCellCollection.cs" />
+    <Compile Include="Divelements\SandGrid\GridChooseEditorEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridChooseEditorEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridColumn.cs" />
+    <Compile Include="Divelements\SandGrid\GridColumnCollection.cs" />
+    <Compile Include="Divelements\SandGrid\GridColumnEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridColumnEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridColumnTextFormatType.cs" />
+    <Compile Include="Divelements\SandGrid\GridComboBoxEditor.cs" />
+    <Compile Include="Divelements\SandGrid\GridDataErrorEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridDataErrorEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridDateTimeEditor.cs" />
+    <Compile Include="Divelements\SandGrid\GridElement.cs" />
+    <Compile Include="Divelements\SandGrid\GridEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridGroup.cs" />
+    <Compile Include="Divelements\SandGrid\GridLinesDisplayType.cs" />
+    <Compile Include="Divelements\SandGrid\GridRow.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowCheckEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowCheckEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowCollection.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowColumnCancelEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowColumnEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowExpandCollapseEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridRowExpandCollapseEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GridStateSerializationOptions.cs" />
+    <Compile Include="Divelements\SandGrid\GridTextBoxEditor.cs" />
+    <Compile Include="Divelements\SandGrid\GridUpDownEditor.cs" />
+    <Compile Include="Divelements\SandGrid\GridValueTransformingEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\GridValueTransformingEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\GroupHeadingClickBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\IGridCellEditor.cs" />
+    <Compile Include="Divelements\SandGrid\InnerGrid.cs" />
+    <Compile Include="Divelements\SandGrid\KeyboardEditMode.cs" />
+    <Compile Include="Divelements\SandGrid\MouseEditMode.cs" />
+    <Compile Include="Divelements\SandGrid\NameValuePair.cs" />
+    <Compile Include="Divelements\SandGrid\NestedGridRow.cs" />
+    <Compile Include="Divelements\SandGrid\NullBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\ParentRowDoubleClickBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\ColumnShadeType.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\DrawingMethods.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\DrawItemState.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\IndependentText.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\ISandGridRenderer.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\Office2007ColorScheme.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\Office2007ColumnHeaderStyle.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\Office2007GroupHeaderStyle.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\Office2007Renderer.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\RenderingContext.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\SandGridGlyphType.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\SandGridPrintDocument.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\TextFormattingInformation.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\WindowsXPRenderer.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\x01480672935e1b10.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\x9c22e59a9d485e4d.cs" />
+    <Compile Include="Divelements\SandGrid\Rendering\xf4604fd5d5aa5ebd.cs" />
+    <Compile Include="Divelements\SandGrid\Resources\xf1a67b6a145d2603.cs" />
+    <Compile Include="Divelements\SandGrid\RowDragBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\RowEditMode.cs" />
+    <Compile Include="Divelements\SandGrid\RowHighlightType.cs" />
+    <Compile Include="Divelements\SandGrid\RowScope.cs" />
+    <Compile Include="Divelements\SandGrid\SandGrid.cs" />
+    <Compile Include="Divelements\SandGrid\SandGridBase.cs" />
+    <Compile Include="Divelements\SandGrid\SandGridLanguage.cs" />
+    <Compile Include="Divelements\SandGrid\SandTreeView.cs" />
+    <Compile Include="Divelements\SandGrid\ScrollOverflowBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\SelectedElementCollection.cs" />
+    <Compile Include="Divelements\SandGrid\SelectionChangedEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\SelectionChangedEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\SelectionGranularity.cs" />
+    <Compile Include="Divelements\SandGrid\SortBox.cs" />
+    <Compile Include="Divelements\SandGrid\SortBoxBorderStyle.cs" />
+    <Compile Include="Divelements\SandGrid\SortColumnsEventArgs.cs" />
+    <Compile Include="Divelements\SandGrid\SortColumnsEventHandler.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridBooleanCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridBooleanColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridButtonCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridButtonColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridCheckBoxCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridCheckBoxColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridConditionalImageColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDateTimeCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDateTimeColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDecimalCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDecimalColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDoubleCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridDoubleColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridFileSizeColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridForeignKeyColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridFriendlyGroupNameColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridHyperlinkCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridHyperlinkColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridImageColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridIntegerCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridIntegerColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\GridProgressBarColumn.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\InteractiveGridCell.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\SingleCellRow.cs" />
+    <Compile Include="Divelements\SandGrid\Specialized\TypedGridCell.cs" />
+    <Compile Include="Divelements\SandGrid\TypedGridColumn.cs" />
+    <Compile Include="Divelements\SandGrid\WhitespaceClickBehavior.cs" />
+    <Compile Include="Divelements\SandGrid\x04ffb75ad95b33a7.cs" />
+    <Compile Include="Divelements\SandGrid\x0e7ffd31ba56b04f.cs" />
+    <Compile Include="Divelements\SandGrid\x1297869bdcf7b6a7.cs" />
+    <Compile Include="Divelements\SandGrid\x2287108d6d59466a.cs" />
+    <Compile Include="Divelements\SandGrid\x28c049b557a495a3.cs" />
+    <Compile Include="Divelements\SandGrid\x29a0cbfd700e4b01.cs" />
+    <Compile Include="Divelements\SandGrid\x2e534b8fab38a541.cs" />
+    <Compile Include="Divelements\SandGrid\x3068eb9be4cffd01.cs" />
+    <Compile Include="Divelements\SandGrid\x3b1e2f322c5dd3fc.cs" />
+    <Compile Include="Divelements\SandGrid\x40917da28fd6d442.cs" />
+    <Compile Include="Divelements\SandGrid\x443cc432acaadb1d.cs" />
+    <Compile Include="Divelements\SandGrid\x573084d7e82604d4.cs" />
+    <Compile Include="Divelements\SandGrid\x57b43ec0b7c08380.cs" />
+    <Compile Include="Divelements\SandGrid\x59ac1f306ac0f29d.cs" />
+    <Compile Include="Divelements\SandGrid\x5d3666f49ba1c366.cs" />
+    <Compile Include="Divelements\SandGrid\x5e489057b964343a.cs" />
+    <Compile Include="Divelements\SandGrid\x681471a7f6916d5c.cs" />
+    <Compile Include="Divelements\SandGrid\x73d5582560af03ef.cs" />
+    <Compile Include="Divelements\SandGrid\x80261b4fd91026f6.cs" />
+    <Compile Include="Divelements\SandGrid\x933c789ad966b48f.cs" />
+    <Compile Include="Divelements\SandGrid\xb0065acaf2259df4.cs" />
+    <Compile Include="Divelements\SandGrid\xc2257fc1f806e0dd.cs" />
+    <Compile Include="Divelements\SandGrid\xc410cede71ea7f97.cs" />
+    <Compile Include="Divelements\SandGrid\xc5054229b6e2c76c.cs" />
+    <Compile Include="Divelements\SandGrid\xc93e236b29b23436.cs" />
+    <Compile Include="Divelements\SandGrid\xcb78343a5ebfa7a3.cs" />
+    <Compile Include="Divelements\SandGrid\xd732e68b9b10f6f8.cs" />
+    <Compile Include="Divelements\SandGrid\xeb9fc992b2fe99d0.cs" />
+    <Compile Include="Divelements\SandGrid\xef6ea4ade4525df4.cs" />
+    <Compile Include="Divelements\SandGrid\xf2a94613768c6d30.cs" />
+    <Compile Include="Divelements\SandGrid\xf6e7622ac6314eae.cs" />
+    <Compile Include="Divelements\Util\Registration\x1d91faf71382de33.cs" />
+    <Compile Include="Divelements\Util\Registration\x294bd621a33dc533.cs" />
+    <Compile Include="Divelements\Util\Registration\xbd7c5470fc89975b.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TD\Util\xf8f9565783602018.cs" />
+    <Compile Include="Xenocode\Client\Attributes\AssemblyAttributes\ProcessedByXenocode.cs" />
+    <Compile Include="Xenocode\Client\Attributes\AssemblyAttributes\SuppressDisassembly.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Divelements\SandGrid\Design\xa99da2aabc9421ba.resources" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\collapsed.gif" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\currentrow.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\error.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\expanded.gif" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\Messages.resources" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\o2k7-collapsed-large.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\o2k7-collapsed.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\o2k7-expanded-large.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\o2k7-expanded.png" />
+    <EmbeddedResource Include="Divelements\SandGrid\Resources\pencil.gif" />
+    <EmbeddedResource Include="Divelements\SandGrid\SandGrid.bmp" />
+    <EmbeddedResource Include="Divelements\SandGrid\SandTreeView.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

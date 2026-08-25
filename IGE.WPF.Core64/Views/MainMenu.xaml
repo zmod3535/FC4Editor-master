@@ -1,0 +1,239 @@
+<Menu
+	x:Class="IGE.Views.MainMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hlp="clr-namespace:IGE.Helpers" xmlns:m="master-build" xmlns:views="clr-namespace:IGE.Views">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary
+					Source="../ResourceDictionary/Images.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<Style
+				TargetType="{x:Type MenuItem}"
+				x:Key="{x:Type MenuItem}">
+				<Style.Resources>
+					<ResourceDictionary>
+						<Style
+							TargetType="{x:Type Image}"
+							x:Key="{x:Type Image}">
+							<Setter
+								Property="Height"
+								Value="20" />
+							<Setter
+								Property="Width"
+								Value="20" />
+						</Style>
+					</ResourceDictionary>
+				</Style.Resources>
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<MenuItem
+		Header="{hlp:Localize MENU_FILE}">
+		<MenuItem
+			InputGestureText="Ctrl+N"
+			Header="{hlp:Localize MENUITEM_FILE_NEW_MAP}"
+			Command="{Binding NewMapCommand}" />
+		<MenuItem
+			InputGestureText="Ctrl+O"
+			Header="{hlp:Localize MENUITEM_FILE_LOAD_MAP}"
+			Command="{Binding LoadMapCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="Ctrl+S"
+			Header="{hlp:Localize MENUITEM_FILE_SAVE_MAP}"
+			Command="{Binding SaveMapCommand}">
+			<MenuItem.Icon>
+				<Image
+					Source="{StaticResource SaveHS}" />
+			</MenuItem.Icon>
+		</MenuItem>
+		<MenuItem
+			InputGestureText="Ctrl+Shift+S"
+			Header="{hlp:Localize MENUITEM_FILE_SAVE_MAP_AS}"
+			Command="{Binding SaveMapAsCommand}">
+			<MenuItem.Icon>
+				<Image
+					Source="{StaticResource SaveHS}" />
+			</MenuItem.Icon>
+		</MenuItem>
+		<Separator />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_VALIDATE}"
+			Command="{Binding ValidateCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_PUBLISH}"
+			Command="{Binding PublishCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MP_ClassCustom_RenameClassCustomization}"
+			Command="{Binding RenameCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="Ctrl+Q"
+			Header="{hlp:Localize MENUITEM_FILE_EXIT}"
+			Command="{Binding CloseCommand}" />
+	</MenuItem>
+	<MenuItem
+		Header="{hlp:Localize MENU_EDIT}">
+		<MenuItem
+			InputGestureText="Ctrl+Z"
+			Header="{hlp:Localize MENUITEM_EDIT_UNDO}"
+			Command="{Binding UndoCommand}" />
+		<MenuItem
+			InputGestureText="Ctrl+Shift+Z"
+			Header="{hlp:Localize MENUITEM_EDIT_REDO}"
+			Command="{Binding RedoCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="Ctrl+C"
+			Header="{hlp:Localize PARAM_SELECTION_COPY_CLIPBOARD}"
+			IsEnabled="{Binding CanCopyFlag}"
+			Command="{Binding CopyCommand}" />
+		<MenuItem
+			InputGestureText="Ctrl+V"
+			Header="{hlp:Localize PARAM_SELECTION_PASTE_CLIPBOARD}"
+			IsEnabled="{Binding CanPasteFlag}"
+			Command="{Binding PasteCommand}" />
+		<Separator />
+		<MenuItem
+			Header="{hlp:LocalizeCommon MAINMENU_MAP_PROPERTIES}"
+			Command="{Binding MapPropsCommand}" />
+	</MenuItem>
+	<MenuItem
+		Header="{hlp:Localize MENU_VIEW}">
+		<MenuItem
+			Header="{hlp:Localize DOCK_TOOL_PARAMETERS}"
+			Command="{Binding ToolParametersCommand}" />
+		<MenuItem
+			Header="{hlp:Localize DOCK_EDITOR_SETTINGS}"
+			Command="{Binding EditorSettingsCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_EDITOR_OBJECTS}"
+			Command="{Binding EditorObjectsCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_BUDGET}"
+			Command="{Binding BudgetMenuCommand}" />
+		<MenuItem
+			Header="{hlp:Localize DOCK_CONTEXT_HELP}"
+			Command="{Binding ContextHelpCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_ADVANCED_RESET_LAYOUT}"
+			Command="{Binding ResetLayoutCommand}" />
+	</MenuItem>
+	<MenuItem
+		Header="{hlp:Localize MENU_GAME}">
+		<MenuItem
+			InputGestureText="Ctrl+P"
+			Header="{hlp:Localize MENUITEM_GAME_PLAY_INGAME}"
+			Command="{Binding PlayIngameCommand}" />
+		<MenuItem
+			InputGestureText="Ctrl+E"
+			Header="{hlp:Localize MENUITEM_GAME_EXPLORE_INGAME}"
+			Command="{Binding ExploreIngameCommand}" />
+	</MenuItem>
+	<MenuItem
+		Header="{hlp:Localize MENU_TOOLS}">
+		<MenuItem
+			InputGestureText="F1"
+			Header="{hlp:LocalizeCommon TOOLNAME_BUMP}"
+			Command="{Binding ToolBumpCommand}" />
+		<MenuItem
+			InputGestureText="F2"
+			Header="{hlp:LocalizeCommon TOOLNAME_RAISELOWER}"
+			Command="{Binding ToolRaiseCommand}" />
+		<MenuItem
+			InputGestureText="F3"
+			Header="{hlp:LocalizeCommon TOOLNAME_FLATTEN}"
+			Command="{Binding ToolFlattenCommand}" />
+		<MenuItem
+			InputGestureText="F4"
+			Header="{hlp:LocalizeCommon TOOLNAME_RAMP}"
+			Command="{Binding ToolRampCommand}" />
+		<MenuItem
+			InputGestureText="F5"
+			Header="{hlp:LocalizeCommon TOOLNAME_SETHEIGHT}"
+			Command="{Binding ToolSet2HeightCommand}" />
+		<MenuItem
+			InputGestureText="F6"
+			Header="{hlp:LocalizeCommon TOOLNAME_SMOOTH}"
+			Command="{Binding ToolSmoothCommand}" />
+		<MenuItem
+			InputGestureText="F7"
+			Header="{hlp:LocalizeCommon TOOLNAME_NOISE}"
+			Command="{Binding ToolNoiseCommand}" />
+		<MenuItem
+			InputGestureText="F8"
+			Header="{hlp:LocalizeCommon TOOLNAME_EROSION}"
+			Command="{Binding ToolErosionCommand}" />
+		<MenuItem
+			InputGestureText="F9"
+			Header="{hlp:Localize TOOL_TERRAIN_HOLE}"
+			Command="{Binding ToolHoleCommand}" />
+		<MenuItem
+			InputGestureText="F10"
+			Header="{hlp:LocalizeCommon TOOLNAME_WATER}"
+			Command="{Binding ToolWaterLayerCommand}" />
+		<MenuItem
+			InputGestureText="F11"
+			Header="{hlp:Localize TOOL_TEXTURE}"
+			Command="{Binding ToolTextureCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="0"
+			Header="{hlp:LocalizeCommon TOOLNAME_COLLECTION}"
+			Command="{Binding ToolCollectionCommand}" />
+		<MenuItem
+			InputGestureText="-"
+			Header="{hlp:Localize TOOL_ROADS}"
+			Command="{Binding ToolRoadsCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="8"
+			Header="{hlp:LocalizeCommon TOOLNAME_ENVIRONMENT}"
+			Command="{Binding ToolEnviromentCommand}" />
+		<MenuItem
+			InputGestureText="9"
+			Header="{hlp:LocalizeCommon TOOLNAME_PLAYABLEZONE}"
+			Command="{Binding ToolPlayableZoneCommand}" />
+		<MenuItem
+			InputGestureText="M"
+			Header="{hlp:Localize MENUITEM_MODIFIERS}"
+			Command="{Binding ToolModifiersCommand}" />
+		<Separator />
+		<MenuItem
+			InputGestureText="1"
+			Header="{hlp:LocalizeCommon TOOLCONTROL_SELECT}"
+			Command="{Binding ToolSelectCommand}" />
+		<MenuItem
+			InputGestureText="2"
+			Header="{hlp:LocalizeCommon TOOLCONTROL_MOVE}"
+			Command="{Binding ToolMoveCommand}" />
+		<MenuItem
+			InputGestureText="3"
+			Header="{hlp:LocalizeCommon TOOLCONTROL_ROTATE}"
+			Command="{Binding ToolRotateCommand}" />
+		<MenuItem
+			InputGestureText="4"
+			Header="{hlp:LocalizeCommon TOOLNAME_SNAPOBJECT}"
+			Command="{Binding ToolSnapCommand}" />
+		<MenuItem
+			InputGestureText="5"
+			Header="{hlp:LocalizeCommon TOOLNAME_ADDOBJECT}"
+			Command="{Binding ToolAddCommand}" />
+		<MenuItem
+			InputGestureText="6"
+			Header="{hlp:Localize MENUITEM_SPAWNER}"
+			Command="{Binding ToolSpawnerCommand}" />
+		<MenuItem
+			InputGestureText="7"
+			Header="{hlp:Localize TOOL_NAVMESH}"
+			Command="{Binding ToolNavmeshCommand}" />
+	</MenuItem>
+	<MenuItem
+		Header="{hlp:Localize MENU_HELP}">
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_HELP_VISIT_WEBSITE}"
+			Command="{Binding VisitWebsiteCommand}" />
+		<MenuItem
+			Header="{hlp:Localize MENUITEM_HELP_ABOUT}"
+			Command="{Binding AboutCommand}" />
+	</MenuItem>
+</Menu>

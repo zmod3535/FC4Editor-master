@@ -1,0 +1,31 @@
+<UserControl
+	x:Class="IGE.Views.ParamWaterMaterialView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:hlp="clr-namespace:IGE.Helpers" xmlns:views="clr-namespace:IGE.Views"
+	IsEnabled="{Binding Enabled}"
+	Visibility="{Binding Visible}">
+	<DockPanel>
+		<TextBlock
+			DockPanel.Dock="Top"
+			Text="{hlp:Localize PARAM_WATER_MATERIAL}" />
+		<Button
+			DockPanel.Dock="Bottom"
+			Margin="2"
+			Content="{hlp:Localize PARAM_ASSIGN}"
+			Command="{Binding CommandAssign}" />
+		<TextBox
+			DockPanel.Dock="Bottom"
+			Margin="2"
+			IsEnabled="False"
+			HorizontalContentAlignment="Center"
+			Text="{Binding WaterMaterial, Mode=OneWay}" />
+		<Button
+			Background="#00FFFFFF"
+			Height="108"
+			Width="108"
+			HorizontalAlignment="Center"
+			Command="{Binding CommandAssign}">
+			<Image
+				Margin="2"
+				Source="{Binding Bitmap}" />
+		</Button>
+	</DockPanel>
+</UserControl>

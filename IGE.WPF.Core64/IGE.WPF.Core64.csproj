@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{FC879072-046B-4E4B-8F24-968D192C3F79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IGE</RootNamespace>
+    <AssemblyName>IGE.WPF.Core64</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>IGE.WPF.Core64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Divelements.SandDock">
+      <HintPath>K:\Far Cry 4 RU\bin1\Divelements.SandDock.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubisoft.ApplicationModel">
+      <HintPath>K:\Far Cry 4 RU\bin1\Ubisoft.ApplicationModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubisoft.Core">
+      <HintPath>K:\Far Cry 4 RU\bin1\Ubisoft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ubisoft.SandControls">
+      <HintPath>K:\Far Cry 4 RU\bin1\Ubisoft.SandControls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\BindableRichTextBox.cs" />
+    <Compile Include="Controls\Prompt.xaml.cs">
+      <DependentUpon>Prompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SimpleToolbarButton.xaml.cs">
+      <DependentUpon>SimpleToolbarButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ComboBoxItemTemplateSelector.cs" />
+    <Compile Include="Helpers\DependencyObjectExtensions.cs" />
+    <Compile Include="Helpers\Extentions.cs" />
+    <Compile Include="Helpers\LocalizeCommonExtension.cs" />
+    <Compile Include="Helpers\LocalizeExtension.cs" />
+    <Compile Include="Helpers\StorageUtils.cs" />
+    <Compile Include="Helpers\ThumbnailLoader.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="MathUtils.cs" />
+    <Compile Include="Nomad\AABB.cs" />
+    <Compile Include="Nomad\Axis.cs" />
+    <Compile Include="Nomad\AxisType.cs" />
+    <Compile Include="Nomad\Binding.cs" />
+    <Compile Include="Nomad\BudgetManager.cs" />
+    <Compile Include="Nomad\Camera.cs" />
+    <Compile Include="Nomad\CollectionInventory.cs" />
+    <Compile Include="Nomad\CollectionManager.cs" />
+    <Compile Include="Nomad\CollectionManipulator.cs" />
+    <Compile Include="Nomad\CollectionRenderer.cs" />
+    <Compile Include="Nomad\CoordinateSystem.cs" />
+    <Compile Include="Nomad\Editor.cs" />
+    <Compile Include="Nomad\EditorDocument.cs" />
+    <Compile Include="Nomad\EditorEventUndo.cs" />
+    <Compile Include="Nomad\EditorObject.cs" />
+    <Compile Include="Nomad\EditorObjectPivot.cs" />
+    <Compile Include="Nomad\EditorObjectSelection.cs" />
+    <Compile Include="Nomad\EditorSettings.cs" />
+    <Compile Include="Nomad\Engine.cs" />
+    <Compile Include="Nomad\EPropertyType.cs" />
+    <Compile Include="Nomad\EPropertyValueType.cs" />
+    <Compile Include="Nomad\GameMode.cs" />
+    <Compile Include="Nomad\GameModeManager.cs" />
+    <Compile Include="Nomad\GameProperties.cs" />
+    <Compile Include="Nomad\GameProperty.cs" />
+    <Compile Include="Nomad\GamePropertyFilter.cs" />
+    <Compile Include="Nomad\Gizmo.cs" />
+    <Compile Include="Nomad\GizmoHelper.cs" />
+    <Compile Include="Nomad\IInputSink.cs" />
+    <Compile Include="Nomad\InputBase.cs" />
+    <Compile Include="Nomad\Inventory.cs" />
+    <Compile Include="Nomad\Localizer.cs" />
+    <Compile Include="Nomad\MapTag.cs" />
+    <Compile Include="Nomad\MapTags.cs" />
+    <Compile Include="Nomad\MultiplyArgsConverter.cs" />
+    <Compile Include="Nomad\Navmesh.cs" />
+    <Compile Include="Nomad\NomadDbIdVector.cs" />
+    <Compile Include="Nomad\ObjectInventory.cs" />
+    <Compile Include="Nomad\ObjectiveType.cs" />
+    <Compile Include="Nomad\ObjectLegoBox.cs" />
+    <Compile Include="Nomad\ObjectManager.cs" />
+    <Compile Include="Nomad\ObjectRenderer.cs" />
+    <Compile Include="Nomad\ObjectType.cs" />
+    <Compile Include="Nomad\ObjectViewer.cs" />
+    <Compile Include="Nomad\PaintBrush.cs" />
+    <Compile Include="Nomad\PhysEntityVector.cs" />
+    <Compile Include="Nomad\Pivot.cs" />
+    <Compile Include="Nomad\Plane.cs" />
+    <Compile Include="Nomad\Points.cs" />
+    <Compile Include="Nomad\PropertyChangedClass.cs" />
+    <Compile Include="Nomad\PropertyChangedSingleton.cs" />
+    <Compile Include="Nomad\RegionInventory.cs" />
+    <Compile Include="Nomad\Render.cs" />
+    <Compile Include="Nomad\RotationDirection.cs" />
+    <Compile Include="Nomad\SelectionChangedHandler.cs" />
+    <Compile Include="Nomad\Snapshot.cs" />
+    <Compile Include="Nomad\Spline.cs" />
+    <Compile Include="Nomad\SplineController.cs" />
+    <Compile Include="Nomad\SplineInventory.cs" />
+    <Compile Include="Nomad\SplineManager.cs" />
+    <Compile Include="Nomad\SplineRoad.cs" />
+    <Compile Include="Nomad\SplineZone.cs" />
+    <Compile Include="Nomad\StringHash.cs" />
+    <Compile Include="Nomad\TerrainManager.cs" />
+    <Compile Include="Nomad\TerrainManipulator.cs" />
+    <Compile Include="Nomad\TextureInventory.cs" />
+    <Compile Include="Nomad\TextureManipulator.cs" />
+    <Compile Include="Nomad\UndoManager.cs" />
+    <Compile Include="Nomad\Validation.cs" />
+    <Compile Include="Nomad\ValidationRecord.cs" />
+    <Compile Include="Nomad\ValidationReport.cs" />
+    <Compile Include="Nomad\Vec2.cs" />
+    <Compile Include="Nomad\Vec3.cs" />
+    <Compile Include="Nomad\Vec3ToStrF2.cs" />
+    <Compile Include="Nomad\WaterInventory.cs" />
+    <Compile Include="Nomad\WaterRenderer.cs" />
+    <Compile Include="Nomad\Wilderness.cs" />
+    <Compile Include="Nomad\WildernessInventory.cs" />
+    <Compile Include="Parameters\EditorObjectViewModel.cs" />
+    <Compile Include="Parameters\InventoryEntryViewModel.cs" />
+    <Compile Include="Parameters\InventoryFolderViewModel.cs" />
+    <Compile Include="Parameters\InventoryTreeItemViewModel.cs" />
+    <Compile Include="Parameters\InventoryTreeViewModel.cs" />
+    <Compile Include="Parameters\ObjectSelectorViewModel.cs" />
+    <Compile Include="Parameters\ParamBool.cs" />
+    <Compile Include="Parameters\ParamBudgetBar.cs" />
+    <Compile Include="Parameters\ParamButton.cs" />
+    <Compile Include="Parameters\ParamCheckButton.cs" />
+    <Compile Include="Parameters\ParamEnumBase.cs" />
+    <Compile Include="Parameters\ParamEnumButton.cs" />
+    <Compile Include="Parameters\ParamEnumButtonImage.cs" />
+    <Compile Include="Parameters\ParamEnumButtonImageText.cs" />
+    <Compile Include="Parameters\ParamEnumButtonText.cs" />
+    <Compile Include="Parameters\ParamEnumCombo.cs" />
+    <Compile Include="Parameters\ParamEnumImage.cs" />
+    <Compile Include="Parameters\ParamEnumList.cs" />
+    <Compile Include="Parameters\ParamEnumListItem.cs" />
+    <Compile Include="Parameters\ParamEnumText.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
+    <Compile Include="Parameters\ParamFloat.cs" />
+    <Compile Include="Parameters\ParamGroup.cs" />
+    <Compile Include="Parameters\ParamInt.cs" />
+    <Compile Include="Parameters\ParamInventoryObject.cs" />
+    <Compile Include="Parameters\ParamObjectSelection.cs" />
+    <Compile Include="Parameters\ParamOverrideFloat.cs" />
+    <Compile Include="Parameters\ParamSlotItemViewModel.cs" />
+    <Compile Include="Parameters\ParamSlotListViewModel.cs" />
+    <Compile Include="Parameters\ParamSnapshot.cs" />
+    <Compile Include="Parameters\ParamSpawner.cs" />
+    <Compile Include="Parameters\ParamString.cs" />
+    <Compile Include="Parameters\ParamText.cs" />
+    <Compile Include="Parameters\ParamTextEdit.cs" />
+    <Compile Include="Parameters\ParamTime.cs" />
+    <Compile Include="Parameters\ParamTool.cs" />
+    <Compile Include="Parameters\ParamVector.cs" />
+    <Compile Include="Parameters\ParamVectorUIType.cs" />
+    <Compile Include="Parameters\ParamWaterMaterial.cs" />
+    <Compile Include="Parameters\SingleParameter.cs" />
+    <Compile Include="Parameters\ValueParameter.cs" />
+    <Compile Include="POINT.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RECT.cs" />
+    <Compile Include="Tools\Tool.cs" />
+    <Compile Include="Tools\ToolAction.cs" />
+    <Compile Include="Tools\ToolBase.cs" />
+    <Compile Include="Tools\ToolCollection.cs" />
+    <Compile Include="Tools\ToolEnvironment.cs" />
+    <Compile Include="Tools\ToolGameProperty.cs" />
+    <Compile Include="Tools\ToolNavmesh.cs" />
+    <Compile Include="Tools\ToolObject.cs" />
+    <Compile Include="Tools\ToolObjectModeToggle.cs" />
+    <Compile Include="Tools\ToolPaint.cs" />
+    <Compile Include="Tools\ToolPaintStrict.cs" />
+    <Compile Include="Tools\ToolPlayableZone.cs" />
+    <Compile Include="Tools\ToolProperties.cs" />
+    <Compile Include="Tools\ToolRoad.cs" />
+    <Compile Include="Tools\ToolSpline.cs" />
+    <Compile Include="Tools\ToolTerrainBump.cs" />
+    <Compile Include="Tools\ToolTerrainErosion.cs" />
+    <Compile Include="Tools\ToolTerrainFlatten.cs" />
+    <Compile Include="Tools\ToolTerrainHole.cs" />
+    <Compile Include="Tools\ToolTerrainNoise.cs" />
+    <Compile Include="Tools\ToolTerrainRaiseLower.cs" />
+    <Compile Include="Tools\ToolTerrainRamp.cs" />
+    <Compile Include="Tools\ToolTerrainSetHeight.cs" />
+    <Compile Include="Tools\ToolTerrainSmooth.cs" />
+    <Compile Include="Tools\ToolTexture.cs" />
+    <Compile Include="Tools\ToolValidation.cs" />
+    <Compile Include="Tools\ToolWater.cs" />
+    <Compile Include="Tools\ToolWilderness.cs" />
+    <Compile Include="UI\ViewportControl.cs" />
+    <Compile Include="ViewModels\AboutWindowViewModel.cs" />
+    <Compile Include="ViewModels\AmbientPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\Behaviours\BooleanToVisibilityNoCollapseConverter.cs" />
+    <Compile Include="ViewModels\Behaviours\ComboBoxItemTemplateChooser.cs" />
+    <Compile Include="ViewModels\Behaviours\DependencyObjectExtensions.cs" />
+    <Compile Include="ViewModels\Behaviours\InputBindingsManager.cs" />
+    <Compile Include="ViewModels\Behaviours\ListViewEnsureVisible.cs" />
+    <Compile Include="ViewModels\Behaviours\MaskBehaviour.cs" />
+    <Compile Include="ViewModels\Behaviours\MouseDoubleClickBehaviour.cs" />
+    <Compile Include="ViewModels\BudgetsViewModel.cs" />
+    <Compile Include="ViewModels\CameraSpeedItem.cs" />
+    <Compile Include="ViewModels\EditorSettingsViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NoPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\ObjectPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\PromptInventoryListViewModel.cs" />
+    <Compile Include="ViewModels\PromptInventoryViewModel.cs" />
+    <Compile Include="ViewModels\STPPropertiesViewModel.cs" />
+    <Compile Include="ViewModels\UpdateModeSource.cs" />
+    <Compile Include="ViewModels\Validation\EmptyStringValidator.cs" />
+    <Compile Include="Views\AboutWindow.cs" />
+    <Compile Include="Views\AmbientPropertiesView.cs" />
+    <Compile Include="Views\BudgetsView.xaml.cs">
+      <DependentUpon>BudgetsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditMapDialog.cs" />
+    <Compile Include="Views\EditorObjectView.cs" />
+    <Compile Include="Views\EditorSettingsView.xaml.cs">
+      <DependentUpon>EditorSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InitDialog.cs" />
+    <Compile Include="Views\InventoryEntryView.cs" />
+    <Compile Include="Views\InventoryFolderView.cs" />
+    <Compile Include="Views\InventoryTreeItemView.cs" />
+    <Compile Include="Views\InventoryTreeView.cs" />
+    <Compile Include="Views\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainToolBarTray.cs" />
+    <Compile Include="Views\NewMapDialog.cs" />
+    <Compile Include="Views\NoPropertiesView.cs" />
+    <Compile Include="Views\ObjectPropertiesView.xaml.cs">
+      <DependentUpon>ObjectPropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ObjectSelectorView.cs" />
+    <Compile Include="Views\OpenDialog.cs" />
+    <Compile Include="Views\ParamBoolView.cs" />
+    <Compile Include="Views\ParamBudgetBarView.cs" />
+    <Compile Include="Views\ParamButtonView.cs" />
+    <Compile Include="Views\ParamCheckButtonView.cs" />
+    <Compile Include="Views\ParamEnumButtonImageTextView.cs" />
+    <Compile Include="Views\ParamEnumButtonImageView.cs" />
+    <Compile Include="Views\ParamEnumButtonItemView.cs" />
+    <Compile Include="Views\ParamEnumButtonView.cs" />
+    <Compile Include="Views\ParamEnumComboView.cs" />
+    <Compile Include="Views\ParamEnumListItemView.cs" />
+    <Compile Include="Views\ParamEnumListView.cs" />
+    <Compile Include="Views\ParamFloatView.cs" />
+    <Compile Include="Views\ParamGroupView.cs" />
+    <Compile Include="Views\ParamIntView.cs" />
+    <Compile Include="Views\ParamInventoryObjectView.cs" />
+    <Compile Include="Views\ParamObjectSelectionView.cs" />
+    <Compile Include="Views\ParamOverrideFloatView.cs" />
+    <Compile Include="Views\ParamSlotListView.cs" />
+    <Compile Include="Views\ParamSnapshotView.cs" />
+    <Compile Include="Views\ParamStringView.cs" />
+    <Compile Include="Views\ParamTextEditView.cs" />
+    <Compile Include="Views\ParamTextView.cs" />
+    <Compile Include="Views\ParamTimeView.cs" />
+    <Compile Include="Views\ParamToolView.cs" />
+    <Compile Include="Views\ParamVectorView.cs" />
+    <Compile Include="Views\ParamWaterMaterialView.cs" />
+    <Compile Include="Views\PromptInventoryListView.xaml.cs">
+      <DependentUpon>PromptInventoryListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PromptInventoryView.cs" />
+    <Compile Include="Views\SaveAsDialog.cs" />
+    <Compile Include="Views\STPPropertiesView.cs" />
+    <Compile Include="Views\TermsOfUse.cs" />
+    <Compile Include="Views\ToolbarActionButton.cs" />
+    <Compile Include="Views\ToolbarButton.cs" />
+    <Compile Include="Views\ToolModeView.xaml.cs">
+      <DependentUpon>ToolModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolView.xaml.cs">
+      <DependentUpon>ToolView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win32.cs" />
+    <Compile Include="WindowPlacement.2.cs" />
+    <Compile Include="WINDOWPLACEMENT.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="UI\ViewportControl.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Prompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SimpleToolbarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcedictionary\images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="resourcedictionary\params.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BudgetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\controls\inventorytreeview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditorSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\mainwindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ObjectPropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\objectproperties\ambientpropertiesview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\objectproperties\nopropertiesview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\objectproperties\stppropertiesview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\objectselectorview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\paraminventoryobjectview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\paramobjectselectionview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\paramslotlistview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\paramsnapshotview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\advanced\paramwatermatertialview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramboolview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\parambudgetbarview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\parambuttonview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramcheckbuttonview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramenumbuttonview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramenumcomboview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramenumlistview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramfloatview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramgroupview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramintview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramoverridefloatview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramstringview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramtextview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramtimeview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramtoolview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\base\paramvectorview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\editorobjectview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\inventoryentryview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\inventoryfolderview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\inventorytreeitemview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\paramenumbuttonimagetextview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\paramenumbuttonimageview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\paramenumbuttonitemview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\paramenumlistitemview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\parameters\items\paramtexteditview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PromptInventoryListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\toolbars\maintoolbartray.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\toolbars\toolbaractionbutton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\toolbars\toolbarbutton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToolModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\aboutwindowview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\editmapdialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\initdialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\newmapdialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\opendialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\promptinventoryview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\saveasdialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\windows\termsofuse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app.ico" />
+    <Resource Include="img\admin.png" />
+    <Resource Include="img\copyhs.png" />
+    <Resource Include="img\cuths.png" />
+    <Resource Include="img\deletefolderhs.png" />
+    <Resource Include="img\empty16.png" />
+    <Resource Include="img\emptysnapshot.png" />
+    <Resource Include="img\error.png" />
+    <Resource Include="img\error16.png" />
+    <Resource Include="img\gamemode\arena.png" />
+    <Resource Include="img\gamemode\assassination.png" />
+    <Resource Include="img\gamemode\deathmatch.png" />
+    <Resource Include="img\gamemode\extraction.png" />
+    <Resource Include="img\gamemode\manvsnature.png" />
+    <Resource Include="img\gamemode\outpost.png" />
+    <Resource Include="img\gamemode\poacher.png" />
+    <Resource Include="img\gamemode\reach.png" />
+    <Resource Include="img\gamemode\relichunter.png" />
+    <Resource Include="img\gamemode\steal.png" />
+    <Resource Include="img\gamemode\teamdeathmatch.png" />
+    <Resource Include="img\gamemode\top.png" />
+    <Resource Include="img\hourglass.png" />
+    <Resource Include="img\icons\folder.png" />
+    <Resource Include="img\icons\object.png" />
+    <Resource Include="img\insertpicturehs.png" />
+    <Resource Include="img\layers.png" />
+    <Resource Include="img\layers_new.png" />
+    <Resource Include="img\newfolderhs.png" />
+    <Resource Include="img\pastehs.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_a.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_d.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_del.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_e.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_l_ctrl.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_l_mouse_small.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_mouseclick_small.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_mousewheel.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_p.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_r_mouse_small.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_s.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_shift.png" />
+    <Resource Include="img\pcbutton\tx_pcbutton_w.png" />
+    <Resource Include="img\playhs.png" />
+    <Resource Include="img\prefab_new.png" />
+    <Resource Include="img\renamefolderhs.png" />
+    <Resource Include="img\sorths.png" />
+    <Resource Include="img\splashscreen\splash.png" />
+    <Resource Include="img\statusbar\camera.png" />
+    <Resource Include="img\statusbar\cursor.png" />
+    <Resource Include="img\statusbar\frametime.png" />
+    <Resource Include="img\statusbar\memoryusage.png" />
+    <Resource Include="img\statusbar\objectusage.png" />
+    <Resource Include="img\statusbar\speed.png" />
+    <Resource Include="img\terrainedit_terrace.png" />
+    <Resource Include="img\thumbnails\prefab.png" />
+    <Resource Include="img\toolbar\gameplay\modifiers.png" />
+    <Resource Include="img\toolbar\main\edit_redohs.png" />
+    <Resource Include="img\toolbar\main\edit_undohs.png" />
+    <Resource Include="img\toolbar\main\newdocumenths.png" />
+    <Resource Include="img\toolbar\main\openhs.png" />
+    <Resource Include="img\toolbar\main\play_icon.png" />
+    <Resource Include="img\toolbar\main\properties.png" />
+    <Resource Include="img\toolbar\main\savehs.png" />
+    <Resource Include="img\toolbar\main\validation.png" />
+    <Resource Include="img\toolbar\miscellaneous\environment.png" />
+    <Resource Include="img\toolbar\miscellaneous\navmesh.png" />
+    <Resource Include="img\toolbar\objects\ai_edit.png" />
+    <Resource Include="img\toolbar\objects\collection.png" />
+    <Resource Include="img\toolbar\objects\object_edit.png" />
+    <Resource Include="img\toolbar\objects\playablezone.png" />
+    <Resource Include="img\toolbar\objects\spline.png" />
+    <Resource Include="img\toolbar\terrain\hole.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_bump.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_erosion.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_flatten.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_noise.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_raiselower.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_ramp.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_setheight.png" />
+    <Resource Include="img\toolbar\terrain\terrainedit_smooth.png" />
+    <Resource Include="img\toolbar\terrain\texture.png" />
+    <Resource Include="img\toolbar\terrain\water.png" />
+    <Resource Include="img\tools\aidata\character.png" />
+    <Resource Include="img\tools\aidata\vehicle.png" />
+    <Resource Include="img\tools\browser\folder_big.png" />
+    <Resource Include="img\tools\browser\thumbwait.png" />
+    <Resource Include="img\tools\browser\up.png" />
+    <Resource Include="img\tools\maplimits\add.png" />
+    <Resource Include="img\tools\maplimits\brush.png" />
+    <Resource Include="img\tools\maplimits\remove.png" />
+    <Resource Include="img\tools\maplimits\select.png" />
+    <Resource Include="img\tools\objects\add_gameplay_object.png" />
+    <Resource Include="img\tools\objects\ai_animal.png" />
+    <Resource Include="img\tools\objects\ambient_ai_animals_and_allies.png" />
+    <Resource Include="img\tools\objects\ambient_ai_enemies_and_allies_option1.png" />
+    <Resource Include="img\tools\objects\object_add.png" />
+    <Resource Include="img\tools\objects\tool_link.png" />
+    <Resource Include="img\tools\objects\tool_move.png" />
+    <Resource Include="img\tools\objects\tool_rotate.png" />
+    <Resource Include="img\tools\objects\tool_select.png" />
+    <Resource Include="img\tools\objects\tool_spawners.png" />
+    <Resource Include="img\tools\objects\tool_stp.png" />
+    <Resource Include="img\valid16.png" />
+    <Resource Include="img\warning16.png" />
+    <Resource Include="img\warzone_circle.png" />
+    <Resource Include="img\warzone_square.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

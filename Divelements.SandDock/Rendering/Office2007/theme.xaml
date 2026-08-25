@@ -1,0 +1,1070 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Divelements.SandDock" xmlns:localprimitives="clr-namespace:Divelements.SandDock.Primitives" xmlns:o2k7="clr-namespace:Divelements.SandDock.Rendering.Office2007" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:rendering="clr-namespace:Divelements.SandDock.Rendering">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="Blue.xaml" />
+		<ResourceDictionary
+			Source="/Divelements.SandDock;component/Resources/ClipArt.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<ControlTemplate
+		TargetType="{x:Type ButtonBase}"
+		x:Key="TitleBarButtonTemplate">
+		<Border
+			Name="PART_OuterBorder"
+			BorderThickness="1"
+			CornerRadius="1">
+			<Grid>
+				<Border
+					Name="PART_InnerBorder"
+					BorderThickness="1" />
+				<ContentPresenter
+					Margin="{TemplateBinding Padding}" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Trigger>
+			<Trigger
+				Property="IsPressed"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type localprimitives:WindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Border
+			Name="PART_OuterBorder"
+			MinHeight="21"
+			CornerRadius="0,0,3.5,3.5"
+			BorderThickness="1,0,1,1"
+			Margin="0,1,0,0">
+			<Border
+				Name="PART_InnerBorder"
+				Margin="0,-1,0,0"
+				BorderThickness="1,0,1,1"
+				CornerRadius="0,0,2,2"
+				Padding="2,3,2,1">
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Left"
+						Width="16"
+						Height="16"
+						VerticalAlignment="Center"
+						Source="{Binding Path=Window.Image, RelativeSource={RelativeSource TemplatedParent}}" />
+					<TextBlock
+						Name="PART_TextBlock"
+						Margin="2,0,0,0"
+						TextTrimming="CharacterEllipsis"
+						VerticalAlignment="Center"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				</DockPanel>
+			</Border>
+		</Border>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="true"
+				Binding="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripSelectedTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_TextBlock"
+					Property="Foreground"
+					Value="{Binding Path=Window.TabForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type localprimitives:WindowTab}"
+		x:Key="{x:Type localprimitives:WindowTab}">
+		<Setter
+			Property="Template"
+			Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}}" />
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type local:WindowGroup}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowGroupTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Border
+				Name="PART_OuterBorder"
+				Grid.RowSpan="2"
+				BorderThickness="1"
+				CornerRadius="2,2,0,0"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}">
+				<Border
+					Name="PART_InnerBorder"
+					BorderThickness="1"
+					CornerRadius="1,1,0,0"
+					BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Border>
+			<Border
+				Name="PART_TitleBar"
+				Margin="2,2,2,0"
+				Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}">
+				<DockPanel
+					Margin="2">
+					<Button
+						Name="PART_CloseButton"
+						Command="{x:Static local:DockableWindow.CloseCommand}"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						CommandTarget="{Binding Path=SelectedWindow, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.Close, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							FontFamily="Marlett"
+							FontSize="12"
+							Text="r" />
+					</Button>
+					<Button
+						Name="PART_PinButton"
+						Visibility="Collapsed"
+						Command="{x:Static local:WindowGroup.TogglePinCommand}"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.AutoHide, RelativeSource={RelativeSource TemplatedParent}}">
+						<Path
+							Name="PinButtonPath"
+							Data="M0.5,6.5 L6.5,6.5 M1.5,6.5 L1.5,0.5 L4.5,0.5 L4.5,6.5 L5.5,6.5 L5.5,0 M3.5,6.5 L3.5,9.5"
+							Margin="2,1,2,0"
+							Stroke="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}" />
+					</Button>
+					<Button
+						Name="PART_OptionsButton"
+						Command="{x:Static local:DockableWindow.WindowOptionsCommand}"
+						ClickMode="Press"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						Foreground="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.WindowOptions, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							FontFamily="Marlett"
+							FontSize="12"
+							Text="u" />
+					</Button>
+					<TextBlock
+						Name="TitleBarLabel"
+						TextTrimming="CharacterEllipsis"
+						Text="{Binding Path=SelectedWindow.Title, RelativeSource={RelativeSource TemplatedParent}}" />
+				</DockPanel>
+			</Border>
+			<ContentPresenter
+				Name="PART_SelectedContentHost"
+				Grid.Row="1"
+				Margin="2,0,2,2"
+				ContentSource="SelectedWindow" />
+			<Grid
+				Name="PART_TabStripContainer"
+				Row="2"
+				Margin="0,2,0,0">
+				<Border
+					BorderThickness="0,1,0,0"
+					BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}">
+					<Border
+						BorderThickness="0,1,0,0"
+						BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				</Border>
+				<localprimitives:WindowList
+					Name="PART_WindowList"
+					ItemsSource="{Binding Path=Windows, RelativeSource={RelativeSource TemplatedParent}}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<localprimitives:ShrinkingTabPanel
+								HorizontalAlignment="Left" />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</localprimitives:WindowList>
+			</Grid>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="False"
+				Binding="{Binding Path=SelectedWindow.ShowOptionsButton, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_OptionsButton"
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+			<DataTrigger
+				Value="False"
+				Binding="{Binding Path=SelectedWindow.AllowClose, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_CloseButton"
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="Docked"
+						Binding="{Binding Path=SelectedWindow.DockSituation, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=AllowCollapse, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="PART_PinButton"
+					Property="Visibility"
+					Value="Visible" />
+			</MultiDataTrigger>
+			<Trigger
+				Property="UIElement.IsKeyboardFocusWithin"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_TitleBar"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.ShowTitleBar"
+				Value="False">
+				<Setter
+					TargetName="PART_TitleBar"
+					Property="Visibility"
+					Value="Collapsed" />
+				<Setter
+					TargetName="PART_SelectedContentHost"
+					Property="Margin"
+					Value="0" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.HasSingleItem"
+				Value="True">
+				<Setter
+					TargetName="PART_TabStripContainer"
+					Property="Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.ShowTabs"
+				Value="False">
+				<Setter
+					TargetName="PART_TabStripContainer"
+					Property="Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.Pinned"
+				Value="False">
+				<Setter
+					TargetName="PinButtonPath"
+					Property="Data"
+					Value="M4.5,0.5 L4.5,6.5 M4.5,1.5 L10.5,1.5 L10.5,4.5 L4.5,4.5 L4.5,5.5 L11,5.5 M4.5,3.5 L0.5,3.5" />
+				<Setter
+					TargetName="PinButtonPath"
+					Property="Margin"
+					Value="0,2,0,0" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type local:WindowGroup}"
+		x:Key="{x:Type local:WindowGroup}">
+		<Setter
+			Property="Template"
+			Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowGroupTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}}" />
+	</Style>
+	<Style
+		TargetType="{x:Type local:DockSite}"
+		x:Key="{x:Type local:DockSite}">
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontSize"
+			Value="11.75" />
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type localprimitives:WindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DocumentWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<localprimitives:DocumentTabChrome
+			Name="PART_Chrome"
+			Margin="-12,2,0,0"
+			IsSelected="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource TemplatedParent}}"
+			BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}"
+			InnerBorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}"
+			Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}">
+			<DockPanel>
+				<Image
+					Name="Image"
+					Margin="0,0,3,0"
+					Width="16"
+					Height="16"
+					VerticalAlignment="Center"
+					Visibility="Collapsed"
+					Source="{Binding Path=Window.Image, RelativeSource={RelativeSource TemplatedParent}}" />
+				<Grid
+					Margin="0,2,4,2">
+					<TextBlock
+						FontWeight="Bold"
+						Visibility="Hidden"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}" />
+					<TextBlock
+						Name="Label"
+						TextTrimming="CharacterEllipsis"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{Binding Path=Window.TabForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Grid>
+			</DockPanel>
+		</localprimitives:DocumentTabChrome>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Window.HasLocalImage, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="Image"
+					Property="Visibility"
+					Value="Visible" />
+			</DataTrigger>
+			<Trigger
+				Property="UIElement.IsMouseOver"
+				Value="True">
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.InnerBorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+			</Trigger>
+			<DataTrigger
+				Value="true"
+				Binding="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.InnerBorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_Chrome"
+					Property="localprimitives:DocumentTabChrome.Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Window.IsLastActiveWindow, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_Chrome"
+					Property="FontWeight"
+					Value="Bold" />
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type MenuItem}"
+		x:Key="TopLevelMenuItemTemplate">
+		<Border
+			Name="PART_OuterBorder"
+			BorderThickness="1"
+			CornerRadius="1">
+			<Grid>
+				<Border
+					Name="PART_InnerBorder"
+					BorderThickness="1" />
+				<ContentPresenter
+					ContentSource="Header" />
+				<Popup
+					Name="PART_Popup"
+					AllowsTransparency="True"
+					Placement="Bottom"
+					Focusable="False"
+					PopupAnimation="{DynamicResource SystemParameters.MenuPopupAnimationKey}"
+					HorizontalOffset="-1"
+					VerticalOffset="1"
+					IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+					<theme:SystemDropShadowChrome
+						Name="PART_Shadow"
+						Color="Transparent">
+						<Border
+							Background="{DynamicResource SystemColors.MenuBrushKey}"
+							CornerRadius="1"
+							BorderThickness="1"
+							BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.BorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}">
+							<ScrollViewer
+								CanContentScroll="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+								<ItemsPresenter
+									Margin="1"
+									KeyboardNavigation.TabNavigation="Cycle"
+									KeyboardNavigation.DirectionalNavigation="Cycle"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+									Grid.IsSharedSizeScope="True" />
+							</ScrollViewer>
+						</Border>
+					</theme:SystemDropShadowChrome>
+				</Popup>
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				SourceName="PART_Popup"
+				Property="Popup.HasDropShadow"
+				Value="True">
+				<Setter
+					TargetName="PART_Shadow"
+					Property="Margin"
+					Value="0,0,5,5" />
+				<Setter
+					TargetName="PART_Shadow"
+					Property="theme:SystemDropShadowChrome.Color"
+					Value="#71000000" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsSubmenuOpen"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+				<Setter
+					TargetName="PART_InnerBorder"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type MenuItem}"
+		x:Key="MenuItemTemplate">
+		<Border>
+			<Grid
+				SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						MinWidth="23"
+						Width="Auto"
+						SharedSizeGroup="MenuItemIconColumnGroup" />
+					<ColumnDefinition
+						Width="6" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="MenuItemTextColumnGroup" />
+					<ColumnDefinition
+						Width="13" />
+				</Grid.ColumnDefinitions>
+				<Border
+					BorderThickness="0,0,1,0"
+					BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.MarginBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}"
+					Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.MarginBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}" />
+				<Border
+					Name="PART_OuterHighlight"
+					Grid.ColumnSpan="4"
+					Margin="0,0,0,1"
+					BorderThickness="1"
+					CornerRadius="2">
+					<Border
+						Name="PART_InnerHighlight"
+						BorderThickness="1" />
+				</Border>
+				<Image
+					Source="{TemplateBinding Icon}"
+					Width="16"
+					Margin="0,0,1,0" />
+				<ContentPresenter
+					Grid.Column="2"
+					ContentSource="Header"
+					Margin="{TemplateBinding Padding}"
+					RecognizesAccessKey="False"
+					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="PART_OuterHighlight"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}" />
+				<Setter
+					TargetName="PART_InnerHighlight"
+					Property="BorderBrush"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}" />
+				<Setter
+					TargetName="PART_InnerHighlight"
+					Property="Background"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}}" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Value="{DynamicResource SystemColors.GrayTextBrushKey}"
+					Property="Foreground" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type local:WindowGroup}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DocumentWindowGroupTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Grid
+			SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<Border
+				Grid.Row="1"
+				BorderThickness="1,0,1,1"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.BorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}">
+				<ContentPresenter
+					ContentSource="SelectedWindow" />
+			</Border>
+			<Border
+				Grid.Row="0"
+				BorderThickness="0,0,0,1"
+				BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.BorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}}" />
+			<DockPanel
+				Grid.Row="0">
+				<Button
+					Name="PART_CloseButton"
+					Command="{x:Static local:DockableWindow.CloseCommand}"
+					Focusable="False"
+					Width="16"
+					Height="15"
+					DockPanel.Dock="Right"
+					Padding="1"
+					Margin="0,0,3,0"
+					Template="{StaticResource TitleBarButtonTemplate}"
+					CommandTarget="{Binding Path=SelectedWindow, RelativeSource={RelativeSource TemplatedParent}}"
+					ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.Close, RelativeSource={RelativeSource TemplatedParent}}">
+					<TextBlock
+						FontFamily="Marlett"
+						FontSize="12"
+						Text="r" />
+				</Button>
+				<Menu
+					Background="#00FFFFFF"
+					DockPanel.Dock="Right"
+					VerticalAlignment="Center"
+					IsMainMenu="False">
+					<MenuItem
+						DockPanel.Dock="Right"
+						HorizontalContentAlignment="Left"
+						Margin="0"
+						Width="16"
+						Height="15"
+						Padding="1"
+						Template="{StaticResource TopLevelMenuItemTemplate}"
+						ItemsSource="{Binding Path=Items, RelativeSource={RelativeSource TemplatedParent}}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.ActiveFiles, RelativeSource={RelativeSource TemplatedParent}}">
+						<HeaderedItemsControl.Header>
+							<TextBlock
+								Margin="1,0,-1,0"
+								FontFamily="Marlett"
+								Text="u"
+								FontSize="12" />
+						</HeaderedItemsControl.Header>
+						<ItemsControl.ItemContainerStyle>
+							<Style
+								TargetType="{x:Type MenuItem}">
+								<Setter
+									Property="Header"
+									Value="{Binding Path=TabText}" />
+								<Setter
+									Property="MenuItem.Command"
+									Value="{x:Static local:DockableWindow.OpenCommand}" />
+								<Setter
+									Property="MenuItem.CommandTarget"
+									Value="{Binding}" />
+								<Setter
+									Property="Template"
+									Value="{StaticResource MenuItemTemplate}" />
+								<Setter
+									Property="Padding"
+									Value="2,4,2,5" />
+								<Setter
+									Property="MenuItem.Icon"
+									Value="{Binding Path=Image}" />
+							</Style>
+						</ItemsControl.ItemContainerStyle>
+					</MenuItem>
+				</Menu>
+				<ScrollViewer
+					Name="Scroller"
+					VerticalScrollBarVisibility="Hidden"
+					HorizontalScrollBarVisibility="Hidden"
+					Margin="0,0,0,-1"
+					Focusable="False">
+					<localprimitives:WindowList
+						Name="PART_WindowList"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Bottom"
+						ItemsSource="{Binding Path=Windows, RelativeSource={RelativeSource TemplatedParent}}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel
+									Margin="12,0,0,0"
+									Orientation="Horizontal" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+					</localprimitives:WindowList>
+				</ScrollViewer>
+			</DockPanel>
+		</Grid>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type localprimitives:UnpinnedTabStrip}"
+		x:Key="{x:Type localprimitives:UnpinnedTabStrip}">
+		<Setter
+			Property="Dock"
+			Value="{Binding Path=(local:DockSite.Dock), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type localprimitives:UnpinnedTray}}}" />
+		<Setter
+			Property="ItemsSource"
+			Value="{Binding Path=WindowGroup.Items, RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type localprimitives:UnpinnedTabStrip}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}">
+						<ItemsPresenter />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="Dock"
+				Value="Top">
+				<Setter
+					Property="Margin"
+					Value="4,0,4,0" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Horizontal"
+								HorizontalAlignment="Left" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								CornerRadius="0,0,3.5,3.5"
+								BorderThickness="1,0,1,1"
+								MinHeight="20"
+								Padding="3,2,3,2"
+								Margin="-1,0,0,2"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.TopTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.TopTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Left"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="2,0,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}" />
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Right">
+				<Setter
+					Property="Margin"
+					Value="0,4,0,4" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Vertical"
+								VerticalAlignment="Top" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								CornerRadius="3.5,0,0,3.5"
+								BorderThickness="1,1,0,1"
+								MinWidth="20"
+								Padding="1,3,2,3"
+								Margin="2,-1,0,0"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.RightTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.RightTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Top"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="1,2,-1,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}">
+										<FrameworkElement.LayoutTransform>
+											<RotateTransform
+												Angle="90" />
+										</FrameworkElement.LayoutTransform>
+									</TextBlock>
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Bottom">
+				<Setter
+					Property="Margin"
+					Value="4,0,4,0" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Horizontal"
+								HorizontalAlignment="Left" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								CornerRadius="3.5,3.5,0,0"
+								BorderThickness="1,1,1,0"
+								MinHeight="20"
+								Padding="3,2,3,2"
+								Margin="-1,2,0,0"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.BottomTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.BottomTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Left"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="2,0,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}" />
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Left">
+				<Setter
+					Property="Margin"
+					Value="0,4,0,4" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Vertical"
+								VerticalAlignment="Top" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								CornerRadius="0,3.5,3.5,0"
+								BorderThickness="0,1,1,1"
+								MinWidth="20"
+								Padding="1,3,2,3"
+								Margin="0,-1,2,0"
+								BorderBrush="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.LeftTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}"
+								Background="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.LeftTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Top"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="1,2,-1,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}">
+										<FrameworkElement.LayoutTransform>
+											<RotateTransform
+												Angle="90" />
+										</FrameworkElement.LayoutTransform>
+									</TextBlock>
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style
+		TargetType="{x:Type localprimitives:PopupContainerSplitter}"
+		x:Key="{x:Type localprimitives:PopupContainerSplitter}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type localprimitives:PopupContainerSplitter}">
+					<Rectangle
+						Name="PART_Background" />
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="Dock"
+							Value="Left">
+							<Setter
+								TargetName="PART_Background"
+								Property="Fill"
+								Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.RightSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}}" />
+							<Setter
+								Property="Width"
+								Value="5" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Top">
+							<Setter
+								TargetName="PART_Background"
+								Property="Fill"
+								Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.BottomSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}}" />
+							<Setter
+								Property="Height"
+								Value="5" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Right">
+							<Setter
+								TargetName="PART_Background"
+								Property="Fill"
+								Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.LeftSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}}" />
+							<Setter
+								Property="Width"
+								Value="5" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Bottom">
+							<Setter
+								TargetName="PART_Background"
+								Property="Fill"
+								Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.TopSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}}" />
+							<Setter
+								Property="Height"
+								Value="5" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		TargetType="{x:Type local:MdiContainer}"
+		x:Key="{x:Type local:MdiContainer}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.TitleBarStyle}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="Normal" />
+		<Setter
+			Property="FontSize"
+			Value="13" />
+		<Setter
+			Property="FontStyle"
+			Value="Normal" />
+	</Style>
+	<Style
+		TargetType="{x:Type TextBlock}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.SmallTitleBarStyle}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<Setter
+			Property="FontFamily"
+			Value="Segoe UI" />
+		<Setter
+			Property="FontWeight"
+			Value="Normal" />
+		<Setter
+			Property="FontSize"
+			Value="11" />
+		<Setter
+			Property="FontStyle"
+			Value="Normal" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItem}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItemSelected}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<LinearGradientBrush
+					StartPoint="0,0"
+					EndPoint="0,1">
+					<GradientStop
+						Offset="0"
+						Color="#FFFCE6" />
+					<GradientStop
+						Offset="0.5"
+						Color="#FFEEA9" />
+					<GradientStop
+						Offset="0.5"
+						Color="#FFD948" />
+					<GradientStop
+						Offset="1"
+						Color="#FFE47F" />
+				</LinearGradientBrush>
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderBrush"
+			Value="#DBCE99" />
+		<Setter
+			Property="Border.CornerRadius"
+			Value="3" />
+	</Style>
+</ResourceDictionary>

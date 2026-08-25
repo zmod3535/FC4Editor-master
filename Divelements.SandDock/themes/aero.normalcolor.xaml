@@ -1,0 +1,78 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:rendering="clr-namespace:Divelements.SandDock.Rendering">
+	<ResourceDictionary.MergedDictionaries>
+		<rendering:ThemeDictionaryManager
+			Type="Aero" />
+	</ResourceDictionary.MergedDictionaries>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		Opacity="0.9"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E2E6EF" />
+		<GradientStop
+			Offset="0.1"
+			Color="#BFCDDB" />
+		<GradientStop
+			Offset="1"
+			Color="#D7E4F2" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#4D4D4D"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="{DynamicResource SystemColors.InactiveCaptionTextColorKey}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		Opacity="0.9"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFF" />
+		<GradientStop
+			Offset="0.1"
+			Color="#98B4D0" />
+		<GradientStop
+			Offset="1"
+			Color="#B9D1EA" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#343434"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="{DynamicResource SystemColors.ActiveCaptionTextColorKey}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#E54C4C4C"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveOuterBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#E5D7E4F2"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveInnerBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#E5000000"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveOuterBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		Opacity="0.9"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveInnerBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#B9D1EA" />
+		<GradientStop
+			Offset="0.22"
+			Color="#D6E4F3" />
+		<GradientStop
+			Offset="0.22"
+			Color="#BAD2EA" />
+		<GradientStop
+			Offset="1"
+			Color="#B9D1EA" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#535666"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveCaptionButtonForegroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+</ResourceDictionary>

@@ -1,0 +1,503 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:o2k7="clr-namespace:Divelements.SandDock.Rendering.Office2007" xmlns:rendering="clr-namespace:Divelements.SandDock.Rendering">
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DockSiteBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#BFDBFF" />
+		<GradientStop
+			Offset="1"
+			Color="#BFDBFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerPopulatedBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerEmptyBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#A3C2EA" />
+		<GradientStop
+			Offset="0.7"
+			Color="#567DB0" />
+		<GradientStop
+			Offset="1"
+			Color="#6591CD" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFF" />
+		<GradientStop
+			Offset="1"
+			Color="#D0E0F0" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="White"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.InactiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E4EBF6" />
+		<GradientStop
+			Offset="0.35"
+			Color="#D9E7F9" />
+		<GradientStop
+			Offset="0.35"
+			Color="#CADEF7" />
+		<GradientStop
+			Offset="1"
+			Color="#DBF4FE" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ActiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFCDA" />
+		<GradientStop
+			Offset="0.7"
+			Color="#FFE790" />
+		<GradientStop
+			Offset="0.7"
+			Color="#FFD74C" />
+		<GradientStop
+			Offset="1"
+			Color="#FFD346" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#E7EFF8"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripSelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7FBFF" />
+		<GradientStop
+			Offset="0.3"
+			Color="#EEF5FB" />
+		<GradientStop
+			Offset="0.3"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="1"
+			Color="#F7FBFF" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripSelectedTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="0.3"
+			Color="#CDFBFF" />
+		<GradientStop
+			Offset="0.7"
+			Color="#D0FBFF" />
+		<GradientStop
+			Offset="1"
+			Color="#F4F9FF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#15428B"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.TabStripNormalTabForegroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#DBCE99" />
+		<GradientStop
+			Offset="0.5"
+			Color="#B9A074" />
+		<GradientStop
+			Offset="1"
+			Color="#CBC3AA" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFB" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFF9E3" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFF2C9" />
+		<GradientStop
+			Offset="1"
+			Color="#FFFCDF" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonHotBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFCE6" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFECA3" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFD844" />
+		<GradientStop
+			Offset="1"
+			Color="#FFE47F" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7B6645"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#B2855C" />
+		<GradientStop
+			Offset="0.1"
+			Color="#F1B072" />
+		<GradientStop
+			Offset="0.6"
+			Color="#F1963B" />
+		<GradientStop
+			Offset="0.6"
+			Color="#ED7804" />
+		<GradientStop
+			Offset="1"
+			Color="#FDAD03" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DockedWindowGroupElements.ButtonPressedBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DockedWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F3A570" />
+		<GradientStop
+			Offset="0.5"
+			Color="#E57840" />
+		<GradientStop
+			Offset="0.5"
+			Color="#DE550A" />
+		<GradientStop
+			Offset="1"
+			Color="#FEA14E" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#678CBD"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.BorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#6593CF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#E3EFFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.NormalTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#BEDAFF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#AED2FF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#8FBCF6" />
+		<GradientStop
+			Offset="1"
+			Color="#98C4FD" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#6593CF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#FFFFFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.HotTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E1EEFF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#D7E8FF" />
+		<GradientStop
+			Offset="0.5"
+			Color="#AED2FF" />
+		<GradientStop
+			Offset="1"
+			Color="#BEDAFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#95774A"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<SolidColorBrush
+		Color="#CDB69C"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:DocumentWindowGroupElements.SelectedTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:DocumentWindowGroupElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFD39E" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFBB6D" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFAF43" />
+		<GradientStop
+			Offset="1"
+			Color="#FEDD76" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.LeftTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}" />
+	<LinearGradientBrush
+		StartPoint="1,0"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.LeftTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7FBFF" />
+		<GradientStop
+			Offset="0.3"
+			Color="#EEF5FB" />
+		<GradientStop
+			Offset="0.3"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="1"
+			Color="#F7FBFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.RightTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.RightTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7FBFF" />
+		<GradientStop
+			Offset="0.3"
+			Color="#EEF5FB" />
+		<GradientStop
+			Offset="0.3"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="1"
+			Color="#F7FBFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.BottomTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,1"
+		EndPoint="0,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.BottomTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7FBFF" />
+		<GradientStop
+			Offset="0.3"
+			Color="#EEF5FB" />
+		<GradientStop
+			Offset="0.3"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="1"
+			Color="#F7FBFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#7596BF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.TopTabBorderBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:UnpinnedTrayElements.TopTabBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:UnpinnedTrayElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#F7FBFF" />
+		<GradientStop
+			Offset="0.3"
+			Color="#EEF5FB" />
+		<GradientStop
+			Offset="0.3"
+			Color="#E1EAF6" />
+		<GradientStop
+			Offset="1"
+			Color="#F7FBFF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#BFDBFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.RightSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}" />
+	<SolidColorBrush
+		Color="#BFDBFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.LeftSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}" />
+	<SolidColorBrush
+		Color="#BFDBFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.TopSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}" />
+	<SolidColorBrush
+		Color="#BFDBFF"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:PopupContainerElements.BottomSplitterBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:PopupContainerElements}}" />
+	<SolidColorBrush
+		Color="#868686"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.BorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}" />
+	<SolidColorBrush
+		Color="#E9EEEE"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.MarginBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}" />
+	<SolidColorBrush
+		Color="#C5C5C5"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.MarginBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightOuterBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#DBCE99" />
+		<GradientStop
+			Offset="0.5"
+			Color="#BCA376" />
+		<GradientStop
+			Offset="1"
+			Color="#C4B498" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightInnerBorderBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFFFB" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFF9E6" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFF2C8" />
+		<GradientStop
+			Offset="1"
+			Color="#FFFACF" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static o2k7:MenuElements.HighlightBackgroundBrush}, TypeInTargetAssembly={x:Type o2k7:MenuElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#FFFCE4" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFEEA7" />
+		<GradientStop
+			Offset="0.5"
+			Color="#FFD947" />
+		<GradientStop
+			Offset="1"
+			Color="#FFE47B" />
+	</LinearGradientBrush>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E3E7EC" />
+		<GradientStop
+			Offset="0.35"
+			Color="#DEE5ED" />
+		<GradientStop
+			Offset="0.35"
+			Color="#D8E1EC" />
+		<GradientStop
+			Offset="1"
+			Color="#DFEBEF" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#C0C6CE"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#A0A0A0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="0,1"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}">
+		<GradientStop
+			Offset="0"
+			Color="#E3EBF6" />
+		<GradientStop
+			Offset="0.17"
+			Color="#DAE9FD" />
+		<GradientStop
+			Offset="0.17"
+			Color="#D5E5FA" />
+		<GradientStop
+			Offset="0.29"
+			Color="#D9E7F9" />
+		<GradientStop
+			Offset="0.29"
+			Color="#CADEF7" />
+		<GradientStop
+			Offset="0.63"
+			Color="#D7E6FA" />
+		<GradientStop
+			Offset="1"
+			Color="#DBF4FE" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="#3B5A82"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#697079"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveTitleBarForegroundBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#C0C6CE"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveOuterBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#D4DEEC"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.InactiveInnerBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#3B5A82"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveOuterBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+	<SolidColorBrush
+		Color="#C2D9F7"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:WindowFrameElements.ActiveInnerBorderBrush}, TypeInTargetAssembly={x:Type rendering:WindowFrameElements}}" />
+</ResourceDictionary>

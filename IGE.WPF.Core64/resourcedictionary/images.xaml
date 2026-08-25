@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ImageSource
+		x:Key="SaveHS">..\img\toolbar\main\saveHS.png</ImageSource>
+	<ImageSource
+		x:Key="NewDocumentHS">..\img\toolbar\main\NewDocumentHS.png</ImageSource>
+	<ImageSource
+		x:Key="OpenHS">..\img\toolbar\main\openHS.png</ImageSource>
+	<ImageSource
+		x:Key="EditUndoHS">..\img\toolbar\main\Edit_UndoHS.png</ImageSource>
+	<ImageSource
+		x:Key="EditRedoHS">..\img\toolbar\main\Edit_RedoHS.png</ImageSource>
+	<ImageSource
+		x:Key="ImageProperties">..\img\toolbar\main\Properties.png</ImageSource>
+	<ImageSource
+		x:Key="ImageValidation">..\img\toolbar\main\Validation.png</ImageSource>
+	<ImageSource
+		x:Key="ImageSpeed">..\img\statusbar\speed.png</ImageSource>
+	<ImageSource
+		x:Key="ImageCamera">..\img\statusbar\camera.png</ImageSource>
+	<ImageSource
+		x:Key="ImageCursor">..\img\statusbar\cursor.png</ImageSource>
+	<ImageSource
+		x:Key="ImageFrameTime">..\img\statusbar\frametime.png</ImageSource>
+	<ImageSource
+		x:Key="ImageBrowseParent">..\img\tools\browser\up.png</ImageSource>
+</ResourceDictionary>

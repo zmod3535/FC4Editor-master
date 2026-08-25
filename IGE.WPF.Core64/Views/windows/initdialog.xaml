@@ -1,0 +1,75 @@
+<Window
+	x:Class="IGE.Views.InitDialog" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewmodels="clr-namespace:IGE.ViewModels" xmlns:hlp="clr-namespace:IGE.Helpers"
+	WindowStartupLocation="CenterScreen"
+	Height="300"
+	Width="300" xmlns:views="clr-namespace:IGE.Views"
+	Title="{Binding DialogTitle}">
+	<Grid>
+		<FrameworkElement.Resources>
+			<ResourceDictionary>
+				<Style
+					TargetType="{x:Type Grid}"
+					x:Key="{x:Type Grid}">
+					<Setter
+						Property="Margin"
+						Value="10" />
+				</Style>
+				<Style
+					TargetType="{x:Type StackPanel}"
+					x:Key="{x:Type StackPanel}">
+					<Setter
+						Property="StackPanel.Orientation"
+						Value="Horizontal" />
+					<Setter
+						Property="HorizontalAlignment"
+						Value="Right" />
+				</Style>
+				<Style
+					TargetType="{x:Type Button}"
+					x:Key="{x:Type Button}">
+					<Setter
+						Property="Width"
+						Value="70" />
+					<Setter
+						Property="Height"
+						Value="25" />
+					<Setter
+						Property="Margin"
+						Value="5,5,0,0" />
+				</Style>
+			</ResourceDictionary>
+		</FrameworkElement.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition
+				Height="Auto" />
+		</Grid.RowDefinitions>
+		<ListBox
+			Name="ActionListBox"
+			SelectionMode="Single"
+			ItemsSource="{Binding ActionList}"
+			SelectedItem="{Binding SelectedAction}"
+			SelectionChanged="ActionListBox_SelectionChanged">
+			<ItemsControl.ItemContainerStyle>
+				<!--Неизвестный ID соединения: 2-->
+				<Style
+					BasedOn="{StaticResource ListBoxItem}"
+					TargetType="{x:Type ListBoxItem}" />
+			</ItemsControl.ItemContainerStyle>
+		</ListBox>
+		<StackPanel
+			Grid.Row="1">
+			<Button
+				Name="OkButton"
+				IsEnabled="False"
+				IsDefault="True"
+				Content="_OK"
+				Click="OkButton_Click" />
+			<Button
+				Name="CancelButton"
+				IsCancel="True"
+				Content="{hlp:Localize PROMPT_CANCEL}"
+				Click="CancelButton_Click" />
+		</StackPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,31 @@
+<UserControl
+	x:Class="IGE.Views.ParamEnumButtonImageTextView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	MaxWidth="72" xmlns:views="clr-namespace:IGE.Views"
+	IsEnabled="{Binding Enabled}">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BoolToVis" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<StackPanel
+		Orientation="Vertical">
+		<ToggleButton
+			Margin="2"
+			Height="64"
+			Width="64"
+			ToolTip="{Binding DisplayName}"
+			IsChecked="{Binding IsActive}"
+			Visibility="{Binding EntryVisible, Converter={StaticResource BoolToVis}}">
+			<Image
+				VerticalAlignment="Stretch"
+				Source="{Binding Image}" />
+		</ToggleButton>
+		<TextBlock
+			TextWrapping="WrapWithOverflow"
+			TextTrimming="CharacterEllipsis"
+			Margin="2,0"
+			TextAlignment="Center"
+			Text="{Binding DisplayName}" />
+	</StackPanel>
+</UserControl>

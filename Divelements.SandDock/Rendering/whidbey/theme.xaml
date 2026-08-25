@@ -1,0 +1,1155 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Divelements.SandDock" xmlns:localprimitives="clr-namespace:Divelements.SandDock.Primitives" xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna" xmlns:rendering="clr-namespace:Divelements.SandDock.Rendering">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary
+			Source="/Divelements.SandDock;component/Resources/ClipArt.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style
+		x:Key="TitleBarBackground">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,0" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource TitleBarBackground}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.InactiveDockedTitleBar}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.InactiveCaptionBrushKey}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.InactiveCaptionTextBrushKey}" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource TitleBarBackground}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveDockedTitleBar}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.ActiveCaptionBrushKey}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ActiveCaptionTextBrushKey}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.TitleBarButton}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.InactiveTitleBarButtonHot}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlLightLightBrushKey}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveTitleBarButtonHot}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlLightLightBrushKey}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveTitleBarButtonPressed}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlLightLightBrushKey}" />
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<SolidColorBrush
+					Color="{DynamicResource SystemColors.ControlLightLightColorKey}"
+					Opacity="0.2" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowGroupTabStripContainer}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="BorderBrush"
+			Value="#FCFCFC" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,2,0,0" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowGroupTabStrip}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,1,0,0" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentGroupTabStrip}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.ControlBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,0,0,1" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentTab}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.ControlBrushKey}" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlTextBrushKey}" />
+		<Setter
+			Property="Margin"
+			Value="-12,2,0,0" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentSelectedTab}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="Background"
+			Value="{DynamicResource SystemColors.WindowBrushKey}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentActiveTab}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowTab}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Border.CornerRadius"
+			Value="0,0,3.5,3.5" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,0,1,1" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlDarkDarkBrushKey}" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowSelectedTab}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="Panel.ZIndex"
+			Value="1" />
+		<Setter
+			Property="Background"
+			Value="#FCFCFE" />
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlTextBrushKey}" />
+	</Style>
+	<Style
+		x:Key="UnpinnedWindowTab">
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.ControlDarkBrushKey}" />
+		<Setter
+			Property="Foreground"
+			Value="{DynamicResource SystemColors.ControlDarkDarkBrushKey}" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource UnpinnedWindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabTop}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Border.CornerRadius"
+			Value="0,0,3.5,3.5" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,0,1,1" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource UnpinnedWindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabRight}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Border.CornerRadius"
+			Value="3.5,0,0,3.5" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,0,1" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource UnpinnedWindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabBottom}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Border.CornerRadius"
+			Value="3.5,3.5,0,0" />
+		<Setter
+			Property="BorderThickness"
+			Value="1,1,1,0" />
+	</Style>
+	<Style
+		BasedOn="{StaticResource UnpinnedWindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabLeft}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="Border.CornerRadius"
+			Value="0,3.5,3.5,0" />
+		<Setter
+			Property="BorderThickness"
+			Value="0,1,1,1" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItem}, TypeInTargetAssembly={x:Type local:DockSite}}">
+		<Setter
+			Property="BorderThickness"
+			Value="1" />
+		<Setter
+			Property="BorderBrush"
+			Value="#00FFFFFF" />
+	</Style>
+	<Style
+		x:Key="{ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItemSelected}, TypeInTargetAssembly={x:Type local:DockSite}}"
+		BasedOn="">
+		<Setter
+			Property="Background">
+			<Setter.Value>
+				<SolidColorBrush
+					Color="{DynamicResource SystemColors.HighlightColorKey}"
+					Opacity="0.4" />
+			</Setter.Value>
+		</Setter>
+		<Setter
+			Property="BorderBrush"
+			Value="{DynamicResource SystemColors.HighlightBrushKey}" />
+	</Style>
+	<LinearGradientBrush
+		StartPoint="0,0"
+		EndPoint="1,0"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DockSiteBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}">
+		<GradientStop
+			Offset="0"
+			Color="{DynamicResource SystemColors.ControlColorKey}" />
+		<GradientStop
+			Offset="1.5"
+			Color="{DynamicResource SystemColors.ControlLightLightColorKey}" />
+	</LinearGradientBrush>
+	<SolidColorBrush
+		Color="{DynamicResource SystemColors.ControlDarkColorKey}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerBorderBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}" />
+	<Thickness
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerBorderThickness}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}">1</Thickness>
+	<SolidColorBrush
+		Color="{DynamicResource SystemColors.AppWorkspaceColorKey}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerEmptyBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:GeneralElements.DocumentContainerPopulatedBackgroundBrush}, TypeInTargetAssembly={x:Type rendering:GeneralElements}}" />
+	<ControlTemplate
+		TargetType="{x:Type ButtonBase}"
+		x:Key="TitleBarButtonTemplate">
+		<Border
+			Name="ButtonBorder"
+			Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.TitleBarButton}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+			<ContentPresenter
+				Margin="{TemplateBinding Padding}" />
+		</Border>
+		<ControlTemplate.Triggers>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="False"
+						Binding="{Binding Path=IsKeyboardFocusWithin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:WindowGroup}}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="ButtonBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.InactiveTitleBarButtonHot}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding Path=IsKeyboardFocusWithin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:WindowGroup}}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="ButtonBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveTitleBarButtonHot}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</MultiDataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="True"
+						Binding="{Binding Path=IsKeyboardFocusWithin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:WindowGroup}}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=IsPressed, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="ButtonBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveTitleBarButtonPressed}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</MultiDataTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type localprimitives:PopupContainerSplitter}"
+		x:Key="{x:Type localprimitives:PopupContainerSplitter}">
+		<Setter
+			Property="Background"
+			Value="#00FFFFFF" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type localprimitives:PopupContainerSplitter}">
+					<Border
+						Name="OuterBorder"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}">
+						<Border
+							Name="InnerBorder" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger
+							Property="Dock"
+							Value="Left">
+							<Setter
+								TargetName="InnerBorder"
+								Value="{DynamicResource SystemColors.ControlLightLightBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="InnerBorder"
+								Property="BorderThickness"
+								Value="1,0,0,0" />
+							<Setter
+								TargetName="OuterBorder"
+								Property="BorderThickness"
+								Value="1,0,0,0" />
+							<Setter
+								Property="Width"
+								Value="4" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Top">
+							<Setter
+								TargetName="InnerBorder"
+								Value="{DynamicResource SystemColors.ControlLightLightBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="InnerBorder"
+								Property="BorderThickness"
+								Value="0,1,0,0" />
+							<Setter
+								TargetName="OuterBorder"
+								Property="BorderThickness"
+								Value="0,1,0,0" />
+							<Setter
+								Property="Height"
+								Value="4" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Right">
+							<Setter
+								TargetName="InnerBorder"
+								Value="{DynamicResource SystemColors.ControlDarkBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="OuterBorder"
+								Value="{DynamicResource SystemColors.ControlDarkDarkBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="InnerBorder"
+								Property="BorderThickness"
+								Value="0,0,1,0" />
+							<Setter
+								TargetName="OuterBorder"
+								Property="BorderThickness"
+								Value="0,0,1,0" />
+							<Setter
+								Property="Width"
+								Value="4" />
+						</Trigger>
+						<Trigger
+							Property="Dock"
+							Value="Bottom">
+							<Setter
+								TargetName="InnerBorder"
+								Value="{DynamicResource SystemColors.ControlDarkBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="OuterBorder"
+								Value="{DynamicResource SystemColors.ControlDarkDarkBrushKey}"
+								Property="BorderBrush" />
+							<Setter
+								TargetName="InnerBorder"
+								Property="BorderThickness"
+								Value="0,0,0,1" />
+							<Setter
+								TargetName="OuterBorder"
+								Property="BorderThickness"
+								Value="0,0,0,1" />
+							<Setter
+								Property="Height"
+								Value="4" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type localprimitives:WindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Border
+			Name="TabBorder"
+			MinHeight="21"
+			Padding="3,2,3,2"
+			Margin="0,-1,0,1"
+			Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowTab}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+			<DockPanel>
+				<Image
+					DockPanel.Dock="Left"
+					Width="16"
+					Height="16"
+					VerticalAlignment="Center"
+					Source="{Binding Path=Window.Image, RelativeSource={RelativeSource TemplatedParent}}" />
+				<TextBlock
+					Margin="2,0,0,0"
+					TextTrimming="CharacterEllipsis"
+					VerticalAlignment="Center"
+					Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}"
+					Foreground="{Binding Path=Window.TabForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
+		</Border>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="true"
+				Binding="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="TabBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowSelectedTab}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type localprimitives:WindowTab}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DocumentWindowTabTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<localprimitives:DocumentTabChrome
+			Name="TabBorder"
+			IsSelected="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource TemplatedParent}}"
+			Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentTab}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+			<DockPanel>
+				<Image
+					Name="Image"
+					Margin="0,0,3,0"
+					Width="16"
+					Height="16"
+					VerticalAlignment="Center"
+					Visibility="Collapsed"
+					Source="{Binding Path=Window.Image, RelativeSource={RelativeSource TemplatedParent}}" />
+				<Grid
+					Margin="0,0,4,0">
+					<TextBlock
+						Grid.Column="1"
+						FontWeight="Bold"
+						Visibility="Hidden"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}" />
+					<TextBlock
+						Name="Label"
+						Grid.Column="1"
+						TextTrimming="CharacterEllipsis"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Text="{Binding Path=Window.TabText, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{Binding Path=Window.TabForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+				</Grid>
+			</DockPanel>
+		</localprimitives:DocumentTabChrome>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Window.HasLocalImage, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="Image"
+					Property="Visibility"
+					Value="Visible" />
+			</DataTrigger>
+			<DataTrigger
+				Value="true"
+				Binding="{Binding Path=Window.IsSelected, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="TabBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentSelectedTab}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</DataTrigger>
+			<DataTrigger
+				Value="True"
+				Binding="{Binding Path=Window.IsLastActiveWindow, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="TabBorder"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentActiveTab}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type local:WindowGroup}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DockableWindowGroupTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Grid
+			SnapsToDevicePixels="True">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<Border
+				Name="PART_TitleBar"
+				Grid.Row="0"
+				Padding="3,0,2,0"
+				Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.InactiveDockedTitleBar}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+				<DockPanel>
+					<Button
+						Name="PART_CloseButton"
+						Command="{x:Static local:DockableWindow.CloseCommand}"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						CommandTarget="{Binding Path=SelectedWindow, RelativeSource={RelativeSource TemplatedParent}}"
+						Foreground="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.Close, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							FontFamily="Marlett"
+							FontSize="12"
+							Text="r" />
+					</Button>
+					<Button
+						Name="PART_PinButton"
+						Visibility="Collapsed"
+						Command="{x:Static local:WindowGroup.TogglePinCommand}"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.AutoHide, RelativeSource={RelativeSource TemplatedParent}}">
+						<Path
+							Name="PinButtonPath"
+							Data="M0.5,6.5 L6.5,6.5 M1.5,6.5 L1.5,0.5 L4.5,0.5 L4.5,6.5 L5.5,6.5 L5.5,0 M3.5,6.5 L3.5,9.5"
+							Margin="2,1,2,0"
+							Stroke="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}" />
+					</Button>
+					<Button
+						Name="PART_OptionsButton"
+						Command="{x:Static local:DockableWindow.WindowOptionsCommand}"
+						ClickMode="Press"
+						Focusable="False"
+						Width="16"
+						Height="15"
+						DockPanel.Dock="Right"
+						Padding="1"
+						Template="{StaticResource TitleBarButtonTemplate}"
+						Foreground="{Binding ElementName=PART_TitleBar, Path=(TextElement.Foreground)}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.WindowOptions, RelativeSource={RelativeSource TemplatedParent}}">
+						<TextBlock
+							FontFamily="Marlett"
+							FontSize="12"
+							Text="u" />
+					</Button>
+					<TextBlock
+						Name="TitleBarLabel"
+						Padding="0,1,0,2"
+						TextTrimming="CharacterEllipsis"
+						Text="{Binding Path=SelectedWindow.Title, RelativeSource={RelativeSource TemplatedParent}}" />
+				</DockPanel>
+			</Border>
+			<Border
+				Grid.Row="1">
+				<ContentPresenter
+					Margin="{TemplateBinding Padding}"
+					ContentSource="SelectedWindow" />
+			</Border>
+			<Border
+				Name="TabStripContainer"
+				Grid.Row="2"
+				Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowGroupTabStripContainer}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+				<Border
+					Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.WindowGroupTabStrip}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+					<localprimitives:WindowList
+						Name="PART_WindowList"
+						ItemsSource="{Binding Path=Windows, RelativeSource={RelativeSource TemplatedParent}}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<localprimitives:ShrinkingTabPanel
+									HorizontalAlignment="Left" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+					</localprimitives:WindowList>
+				</Border>
+			</Border>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<DataTrigger
+				Value="False"
+				Binding="{Binding Path=SelectedWindow.ShowOptionsButton, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_OptionsButton"
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+			<DataTrigger
+				Value="False"
+				Binding="{Binding Path=SelectedWindow.AllowClose, RelativeSource={RelativeSource Self}}">
+				<Setter
+					TargetName="PART_CloseButton"
+					Property="Visibility"
+					Value="Collapsed" />
+			</DataTrigger>
+			<MultiDataTrigger>
+				<MultiDataTrigger.Conditions>
+					<Condition
+						Value="Docked"
+						Binding="{Binding Path=SelectedWindow.DockSituation, RelativeSource={RelativeSource Self}}" />
+					<Condition
+						Value="True"
+						Binding="{Binding Path=AllowCollapse, RelativeSource={RelativeSource Self}}" />
+				</MultiDataTrigger.Conditions>
+				<Setter
+					TargetName="PART_PinButton"
+					Property="Visibility"
+					Value="Visible" />
+			</MultiDataTrigger>
+			<Trigger
+				Property="UIElement.IsKeyboardFocusWithin"
+				Value="True">
+				<Setter
+					TargetName="PART_TitleBar"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.ActiveDockedTitleBar}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.ShowTitleBar"
+				Value="False">
+				<Setter
+					TargetName="PART_TitleBar"
+					Property="Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.HasSingleItem"
+				Value="True">
+				<Setter
+					TargetName="TabStripContainer"
+					Property="Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.ShowTabs"
+				Value="False">
+				<Setter
+					TargetName="TabStripContainer"
+					Property="Visibility"
+					Value="Collapsed" />
+			</Trigger>
+			<Trigger
+				Property="local:WindowGroup.Pinned"
+				Value="False">
+				<Setter
+					TargetName="PinButtonPath"
+					Property="Data"
+					Value="M4.5,0.5 L4.5,6.5 M4.5,1.5 L10.5,1.5 L10.5,4.5 L4.5,4.5 L4.5,5.5 L11,5.5 M4.5,3.5 L0.5,3.5" />
+				<Setter
+					TargetName="PinButtonPath"
+					Property="Margin"
+					Value="0,2,0,0" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style
+		TargetType="{x:Type localprimitives:UnpinnedTabStrip}"
+		x:Key="{x:Type localprimitives:UnpinnedTabStrip}">
+		<Setter
+			Property="Dock"
+			Value="{Binding Path=(local:DockSite.Dock), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type localprimitives:UnpinnedTray}}}" />
+		<Setter
+			Property="ItemsSource"
+			Value="{Binding Path=WindowGroup.Items, RelativeSource={RelativeSource Self}}" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type localprimitives:UnpinnedTabStrip}">
+					<Border
+						Background="{TemplateBinding Background}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						SnapsToDevicePixels="True">
+						<ItemsPresenter
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger
+				Property="Dock"
+				Value="Top">
+				<Setter
+					Property="Margin"
+					Value="4,0,4,0" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Horizontal"
+								HorizontalAlignment="Left" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								MinHeight="20"
+								Padding="3,2,3,2"
+								Margin="-1,0,0,2"
+								SnapsToDevicePixels="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabTop}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Left"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="2,0,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}" />
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Right">
+				<Setter
+					Property="Margin"
+					Value="0,4,0,4" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Vertical"
+								VerticalAlignment="Top" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								MinWidth="20"
+								Padding="1,3,2,3"
+								Margin="2,-1,0,0"
+								SnapsToDevicePixels="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabRight}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Top"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="0,2,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}">
+										<FrameworkElement.LayoutTransform>
+											<RotateTransform
+												Angle="90" />
+										</FrameworkElement.LayoutTransform>
+									</TextBlock>
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Bottom">
+				<Setter
+					Property="Margin"
+					Value="4,0,4,0" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Horizontal"
+								HorizontalAlignment="Left" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								MinHeight="20"
+								Padding="3,2,3,2"
+								Margin="-1,2,0,0"
+								SnapsToDevicePixels="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabBottom}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Left"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="2,0,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}" />
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+			<Trigger
+				Property="Dock"
+				Value="Left">
+				<Setter
+					Property="Margin"
+					Value="0,4,0,4" />
+				<Setter
+					Property="ItemsPanel">
+					<Setter.Value>
+						<ItemsPanelTemplate>
+							<StackPanel
+								Orientation="Vertical"
+								VerticalAlignment="Top" />
+						</ItemsPanelTemplate>
+					</Setter.Value>
+				</Setter>
+				<Setter
+					Property="ItemTemplate">
+					<Setter.Value>
+						<DataTemplate>
+							<Border
+								Name="TabBorder"
+								MinWidth="20"
+								Padding="1,3,2,3"
+								Margin="0,-1,2,0"
+								SnapsToDevicePixels="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.UnpinnedWindowTabLeft}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+								<DockPanel>
+									<Image
+										DockPanel.Dock="Top"
+										Width="16"
+										VerticalAlignment="Center"
+										Source="{Binding Path=Image}" />
+									<TextBlock
+										Margin="0,2,0,0"
+										TextTrimming="CharacterEllipsis"
+										VerticalAlignment="Center"
+										Text="{Binding Path=TabText}">
+										<FrameworkElement.LayoutTransform>
+											<RotateTransform
+												Angle="90" />
+										</FrameworkElement.LayoutTransform>
+									</TextBlock>
+								</DockPanel>
+							</Border>
+						</DataTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<ControlTemplate
+		TargetType="{x:Type MenuItem}"
+		x:Key="TopLevelMenuItemTemplate">
+		<Border
+			Name="PART_Border"
+			SnapsToDevicePixels="True"
+			Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItem}, TypeInTargetAssembly={x:Type local:DockSite}}}">
+			<DockPanel>
+				<ContentPresenter
+					ContentSource="Header"
+					Margin="{TemplateBinding Padding}"
+					RecognizesAccessKey="True"
+					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+				<Popup
+					Name="PART_Popup"
+					AllowsTransparency="True"
+					Placement="Bottom"
+					Focusable="False"
+					PopupAnimation="{DynamicResource SystemParameters.MenuPopupAnimationKey}"
+					HorizontalOffset="-1"
+					VerticalOffset="1"
+					IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}">
+					<theme:SystemDropShadowChrome
+						Name="PART_Shadow"
+						Color="Transparent">
+						<Border
+							Name="SubMenuBorder"
+							Background="{DynamicResource SystemColors.MenuBrushKey}"
+							BorderThickness="1"
+							BorderBrush="{DynamicResource SystemColors.ControlDarkBrushKey}">
+							<ScrollViewer
+								CanContentScroll="True"
+								Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
+								<ItemsPresenter
+									Margin="1"
+									KeyboardNavigation.TabNavigation="Cycle"
+									KeyboardNavigation.DirectionalNavigation="Cycle"
+									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+									Grid.IsSharedSizeScope="True" />
+							</ScrollViewer>
+						</Border>
+					</theme:SystemDropShadowChrome>
+				</Popup>
+			</DockPanel>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				SourceName="PART_Popup"
+				Property="Popup.HasDropShadow"
+				Value="True">
+				<Setter
+					TargetName="PART_Shadow"
+					Property="Margin"
+					Value="0,0,5,5" />
+				<Setter
+					TargetName="PART_Shadow"
+					Property="theme:SystemDropShadowChrome.Color"
+					Value="#71000000" />
+			</Trigger>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="PART_Border"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItemSelected}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type MenuItem}"
+		x:Key="MenuItemTemplate">
+		<Border>
+			<Grid
+				SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						MinWidth="23"
+						Width="Auto"
+						SharedSizeGroup="MenuItemIconColumnGroup" />
+					<ColumnDefinition
+						Width="6" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="MenuItemTextColumnGroup" />
+					<ColumnDefinition
+						Width="13" />
+				</Grid.ColumnDefinitions>
+				<Border>
+					<Border.Background>
+						<LinearGradientBrush
+							StartPoint="0,0"
+							EndPoint="1,0">
+							<GradientStop
+								Offset="0"
+								Color="#FCFBF8" />
+							<GradientStop
+								Offset="0.5"
+								Color="#ECE7E0" />
+							<GradientStop
+								Offset="1"
+								Color="#C4C3AC" />
+						</LinearGradientBrush>
+					</Border.Background>
+				</Border>
+				<Border
+					Name="Bd"
+					Grid.ColumnSpan="4"
+					Margin="0,0,0,1"
+					Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItem}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+				<Image
+					Source="{TemplateBinding Icon}"
+					Width="16"
+					Margin="0,0,1,0" />
+				<ContentPresenter
+					Grid.Column="2"
+					ContentSource="Header"
+					Margin="{TemplateBinding Padding}"
+					RecognizesAccessKey="False"
+					SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+			</Grid>
+		</Border>
+		<ControlTemplate.Triggers>
+			<Trigger
+				Property="MenuItem.IsHighlighted"
+				Value="True">
+				<Setter
+					TargetName="Bd"
+					Property="Style"
+					Value="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.SelectableItemSelected}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			</Trigger>
+			<Trigger
+				Property="IsEnabled"
+				Value="False">
+				<Setter
+					Value="{DynamicResource SystemColors.GrayTextBrushKey}"
+					Property="Foreground" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate
+		TargetType="{x:Type local:WindowGroup}"
+		x:Key="{ComponentResourceKey ResourceId={x:Static rendering:DynamicTemplates.DocumentWindowGroupTemplate}, TypeInTargetAssembly={x:Type rendering:DynamicTemplates}}">
+		<Grid
+			SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<ContentPresenter
+				Grid.Row="1"
+				ContentSource="SelectedWindow" />
+			<Border
+				Grid.Row="0"
+				Style="{DynamicResource {ComponentResourceKey ResourceId={x:Static local:RenderingElement.DocumentGroupTabStrip}, TypeInTargetAssembly={x:Type local:DockSite}}}" />
+			<DockPanel
+				Grid.Row="0">
+				<Button
+					Name="PART_CloseButton"
+					Command="{x:Static local:DockableWindow.CloseCommand}"
+					Focusable="False"
+					Width="16"
+					Height="15"
+					DockPanel.Dock="Right"
+					Padding="1"
+					Margin="0,0,3,0"
+					Template="{StaticResource TitleBarButtonTemplate}"
+					CommandTarget="{Binding Path=SelectedWindow, RelativeSource={RelativeSource TemplatedParent}}"
+					ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.Close, RelativeSource={RelativeSource TemplatedParent}}">
+					<TextBlock
+						FontFamily="Marlett"
+						FontSize="12"
+						Text="r" />
+				</Button>
+				<Menu
+					Background="#00FFFFFF"
+					DockPanel.Dock="Right"
+					VerticalAlignment="Center"
+					IsMainMenu="False">
+					<MenuItem
+						DockPanel.Dock="Right"
+						HorizontalContentAlignment="Left"
+						Margin="0"
+						Width="16"
+						Height="15"
+						Padding="1"
+						Template="{StaticResource TopLevelMenuItemTemplate}"
+						ItemsSource="{Binding Path=Items, RelativeSource={RelativeSource TemplatedParent}}"
+						ToolTip="{Binding Path=SelectedWindow.DockSite.LanguageStrings.ActiveFiles, RelativeSource={RelativeSource TemplatedParent}}">
+						<HeaderedItemsControl.Header>
+							<TextBlock
+								FontFamily="Marlett"
+								Text="u"
+								FontSize="12" />
+						</HeaderedItemsControl.Header>
+						<ItemsControl.ItemContainerStyle>
+							<Style
+								TargetType="{x:Type MenuItem}">
+								<Setter
+									Property="Header"
+									Value="{Binding Path=TabText}" />
+								<Setter
+									Property="MenuItem.Command"
+									Value="{x:Static local:DockableWindow.OpenCommand}" />
+								<Setter
+									Property="MenuItem.CommandTarget"
+									Value="{Binding}" />
+								<Setter
+									Property="Template"
+									Value="{StaticResource MenuItemTemplate}" />
+								<Setter
+									Property="Padding"
+									Value="2,4,2,5" />
+								<Setter
+									Property="MenuItem.Icon"
+									Value="{Binding Path=Image}" />
+							</Style>
+						</ItemsControl.ItemContainerStyle>
+					</MenuItem>
+				</Menu>
+				<ScrollViewer
+					Name="Scroller"
+					VerticalScrollBarVisibility="Hidden"
+					HorizontalScrollBarVisibility="Hidden"
+					Margin="0,0,0,-1"
+					Focusable="False">
+					<localprimitives:WindowList
+						Name="PART_WindowList"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Bottom"
+						ItemsSource="{Binding Path=Windows, RelativeSource={RelativeSource TemplatedParent}}">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel
+									Margin="12,0,0,0"
+									Orientation="Horizontal" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+					</localprimitives:WindowList>
+				</ScrollViewer>
+			</DockPanel>
+		</Grid>
+	</ControlTemplate>
+</ResourceDictionary>
